@@ -7,5 +7,8 @@
 
         public Guid IdFactura { get; set; }
         public required Factura Factura { get; set; }
+
+        public Guid IdProducto { get; set; }
+        public required Producto Producto { get; set; }
     }
 }

@@ -13,6 +13,8 @@
         public required decimal Valor { get; set; }
 
         public Guid IdMarca { get; set; }
-        public required Marca Marcas { get; set; }
+        public required Marca Marca { get; set; }
+
+        public required ICollection<DetalleFactura> DetalleFactura { get; set; }
     }
 }

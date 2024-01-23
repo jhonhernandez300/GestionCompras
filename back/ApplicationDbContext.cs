@@ -58,25 +58,28 @@ namespace LionDev
                 .WithMany(f => f.Factura)
                 .HasForeignKey(df => df.IdComprador);
 
-            modelBuilder.Entity<Factura>()
-                .HasOne(df => df.Comprador)
-                .WithMany(f => f.Factura)
-                .HasForeignKey(df => df.IdComprador);
+            modelBuilder.Entity<DetalleFactura>()
+                .HasOne(df => df.Producto)
+                .WithMany(f => f.DetalleFactura)
+                .HasForeignKey(df => df.IdProducto);
 
-            // Configuración similar para otros modelos...
+            modelBuilder.Entity<Producto>()
+                .HasOne(df => df.Marca)
+                .WithMany(f => f.Producto)
+                .HasForeignKey(df => df.IdMarca);                        
 
             // Seeds
-            modelBuilder.Entity<Marca>().HasData(
-                new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca1" },
-                new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca2" },
-                new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca3" }
-            );
+            //modelBuilder.Entity<Marca>().HasData(
+            //    new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca1" },
+            //    new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca2" },
+            //    new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca3" }
+            //);
 
-            modelBuilder.Entity<Producto>().HasData(
-                new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto1", Referencia = "Ref1", Imagen = "Imagen1", Descripcion = "Desc1", Color = "Color1", Cantidad = 10, Talla = "Talla1", Valor = 100.50m, IdMarca = Guid.NewGuid() },
-                new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto2", Referencia = "Ref2", Imagen = "Imagen2", Descripcion = "Desc2", Color = "Color2", Cantidad = 20, Talla = "Talla2", Valor = 200.75m, IdMarca = Guid.NewGuid() },
-                new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto3", Referencia = "Ref3", Imagen = "Imagen3", Descripcion = "Desc3", Color = "Color3", Cantidad = 30, Talla = "Talla3", Valor = 300.99m, IdMarca = Guid.NewGuid() }
-            );
+            //modelBuilder.Entity<Producto>().HasData(
+            //    new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto1", Referencia = "Ref1", Imagen = "Imagen1", Descripcion = "Desc1", Color = "Color1", Cantidad = 10, Talla = "Talla1", Valor = 100.50m, IdMarca = Guid.NewGuid() },
+            //    new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto2", Referencia = "Ref2", Imagen = "Imagen2", Descripcion = "Desc2", Color = "Color2", Cantidad = 20, Talla = "Talla2", Valor = 200.75m, IdMarca = Guid.NewGuid() },
+            //    new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto3", Referencia = "Ref3", Imagen = "Imagen3", Descripcion = "Desc3", Color = "Color3", Cantidad = 30, Talla = "Talla3", Valor = 300.99m, IdMarca = Guid.NewGuid() }
+            //);
 
             // Seeds para otros modelos...
 
