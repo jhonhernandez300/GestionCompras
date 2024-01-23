@@ -66,7 +66,42 @@ namespace LionDev
             modelBuilder.Entity<Producto>()
                 .HasOne(df => df.Marca)
                 .WithMany(f => f.Producto)
-                .HasForeignKey(df => df.IdMarca);                        
+                .HasForeignKey(df => df.IdMarca);
+
+            //Reglas de los campos
+            modelBuilder.Entity<Comprador>(entity =>
+            {
+                entity.Property(e => e.Nombres)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode()
+                    .HasColumnType("nvarchar(30)"); // Tipo de columna y longitud en la base de datos
+
+                entity.Property(e => e.Apellidos)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode()
+                    .HasColumnType("nvarchar(30)");
+
+                entity.Property(e => e.CorreoElectronico)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode()
+                    .HasColumnType("nvarchar(30)");
+
+                entity.Property(e => e.TipoDeDocumento)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode()
+                    .HasColumnType("nvarchar(30)");
+
+                entity.Property(e => e.NumeroDeDocumento)
+                    .IsRequired()
+                    .HasMaxLength(16)
+                    .IsUnicode();                    
+
+            });
+
 
             // Seeds
             //modelBuilder.Entity<Marca>().HasData(
@@ -84,6 +119,6 @@ namespace LionDev
             // Seeds para otros modelos...
 
             base.OnModelCreating(modelBuilder);
-        }
     }
+}
 }
