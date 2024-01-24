@@ -9,7 +9,7 @@ namespace LionDev.Models
         public required string Audience { get; set; }
         public required string Subject { get; set; }
 
-        public static dynamic validarToken(ClaimsIdentity identity)
+        public static dynamic validarToken(ClaimsIdentity identity, ApplicationDbContext context)
         {
             try
             {            
@@ -24,13 +24,18 @@ namespace LionDev.Models
                 }
 
                 var id = identity.Claims.FirstOrDefault(x => x.Type == "id").Value;
-                Usuario usuario = Usuario.DB().FirstOrDefault(x => x.idUsuario == id);
+                //Usuario usuario = Usuario.DB().FirstOrDefault(x => x.idUsuario == id);
+
+                Comprador comprador = context.Compradores
+                    .Where(x => x.IdComprador.ToString() == id)
+                    .FirstOrDefault();
 
                 return new
                 {
                     success = true,
                     message = "exito",
-                    result = usuario
+                    //result = usuario
+                    result = comprador
                 };
             }
             catch (Exception ex) 

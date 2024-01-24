@@ -17,10 +17,10 @@ namespace LionDev
                    : base(options)
         { }
 
-        public DbSet<DetalleFactura> DetalleFacturas { get; set; }
-        public DbSet<Producto> Productos { get; set; }
-        public DbSet<Factura> Facturas { get; set; }
-        public DbSet<Marca> Marcas { get; set; }
+        //public DbSet<DetalleFactura> DetalleFacturas { get; set; }
+        //public DbSet<Producto> Productos { get; set; }
+        //public DbSet<Factura> Facturas { get; set; }
+        //public DbSet<Marca> Marcas { get; set; }
         public DbSet<Comprador> Compradores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,45 +28,45 @@ namespace LionDev
             // Relaciones y configuraciones de modelos aquí usando Fluent API
 
             //Las PKs
-            modelBuilder.Entity<DetalleFactura>()
-                .HasKey(df => df.IdDetalleFactura);
+            //modelBuilder.Entity<DetalleFactura>()
+            //    .HasKey(df => df.IdDetalleFactura);
 
-            modelBuilder.Entity<Producto>()
-                .HasKey(df => df.IdProducto);
+            //modelBuilder.Entity<Producto>()
+            //    .HasKey(df => df.IdProducto);
 
-            modelBuilder.Entity<Factura>()
-                .HasKey(df => df.IdFactura);
+            //modelBuilder.Entity<Factura>()
+            //    .HasKey(df => df.IdFactura);
 
-            modelBuilder.Entity<Marca>()
-                .HasKey(df => df.IdMarca);
+            //modelBuilder.Entity<Marca>()
+            //    .HasKey(df => df.IdMarca);
 
             modelBuilder.Entity<Comprador>()
                 .HasKey(df => df.IdComprador);
 
-            modelBuilder.Entity<DetalleFactura>()
-                .Property(df => df.Cantidad)
-                .IsRequired();
+            //modelBuilder.Entity<DetalleFactura>()
+            //    .Property(df => df.Cantidad)
+            //    .IsRequired();
 
             //Las relaciones
-            modelBuilder.Entity<DetalleFactura>()
-                .HasOne(df => df.Factura)
-                .WithMany(f => f.DetalleFactura)
-                .HasForeignKey(df => df.IdFactura);
+            //modelBuilder.Entity<DetalleFactura>()
+            //    .HasOne(df => df.Factura)
+            //    .WithMany(f => f.DetalleFactura)
+            //    .HasForeignKey(df => df.IdFactura);
 
-            modelBuilder.Entity<Factura>()
-                .HasOne(df => df.Comprador)
-                .WithMany(f => f.Factura)
-                .HasForeignKey(df => df.IdComprador);
+            //modelBuilder.Entity<Factura>()
+            //    .HasOne(df => df.Comprador)
+            //    .WithMany(f => f.Factura)
+            //    .HasForeignKey(df => df.IdComprador);
 
-            modelBuilder.Entity<DetalleFactura>()
-                .HasOne(df => df.Producto)
-                .WithMany(f => f.DetalleFactura)
-                .HasForeignKey(df => df.IdProducto);
+            //modelBuilder.Entity<DetalleFactura>()
+            //    .HasOne(df => df.Producto)
+            //    .WithMany(f => f.DetalleFactura)
+            //    .HasForeignKey(df => df.IdProducto);
 
-            modelBuilder.Entity<Producto>()
-                .HasOne(df => df.Marca)
-                .WithMany(f => f.Producto)
-                .HasForeignKey(df => df.IdMarca);
+            //modelBuilder.Entity<Producto>()
+            //    .HasOne(df => df.Marca)
+            //    .WithMany(f => f.Producto)
+            //    .HasForeignKey(df => df.IdMarca);
 
             //Reglas de los campos
             modelBuilder.Entity<Comprador>(entity =>
@@ -98,25 +98,62 @@ namespace LionDev
                 entity.Property(e => e.NumeroDeDocumento)
                     .IsRequired()
                     .HasMaxLength(16)
-                    .IsUnicode();                    
+                    .IsUnicode();
 
+                entity.Property(e => e.Contrasena)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode()
+                    .HasColumnType("nvarchar(30)");
+
+                entity.Property(e => e.Genero)
+                    .IsRequired()
+                    .HasMaxLength(9)
+                    .IsUnicode()
+                    .HasColumnType("nvarchar(9)");
+
+                entity.Property(e => e.Direccion)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode()
+                    .HasColumnType("nvarchar(30)");
+
+                entity.Property(e => e.rol)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode()
+                    .HasColumnType("nvarchar(30)");
             });
 
 
             // Seeds
-            //modelBuilder.Entity<Marca>().HasData(
-            //    new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca1" },
-            //    new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca2" },
-            //    new Marca { IdMarca = Guid.NewGuid(), Nombre = "Marca3" }
-            //);
+            modelBuilder.Entity<Comprador>().HasData(
+                new Comprador { IdComprador = Guid.NewGuid(), 
+                    Nombres = "Radamel",
+                    Apellidos = "Falcao",
+                    CorreoElectronico = "rada@gmail.com",
+                    TipoDeDocumento = "Cedula",
+                    NumeroDeDocumento = 12345,
+                    Contrasena = "Rada1",
+                    Genero = "Masculino",
+                    Direccion = "Calle 1",
+                    rol = "Administrador"
+                },
+                new Comprador
+                {
+                    IdComprador = Guid.NewGuid(),
+                    Nombres = "James",
+                    Apellidos = "Rodriguez",
+                    CorreoElectronico = "james@gmail.com",
+                    TipoDeDocumento = "Cedula",
+                    NumeroDeDocumento = 12346,
+                    Contrasena = "James1",
+                    Genero = "Masculino",
+                    Direccion = "Calle 2",
+                    rol = "Empleado"
+                }         
+            );     
 
-            //modelBuilder.Entity<Producto>().HasData(
-            //    new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto1", Referencia = "Ref1", Imagen = "Imagen1", Descripcion = "Desc1", Color = "Color1", Cantidad = 10, Talla = "Talla1", Valor = 100.50m, IdMarca = Guid.NewGuid() },
-            //    new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto2", Referencia = "Ref2", Imagen = "Imagen2", Descripcion = "Desc2", Color = "Color2", Cantidad = 20, Talla = "Talla2", Valor = 200.75m, IdMarca = Guid.NewGuid() },
-            //    new Producto { IdProducto = Guid.NewGuid(), Nombre = "Producto3", Referencia = "Ref3", Imagen = "Imagen3", Descripcion = "Desc3", Color = "Color3", Cantidad = 30, Talla = "Talla3", Valor = 300.99m, IdMarca = Guid.NewGuid() }
-            //);
-
-            // Seeds para otros modelos...
 
             base.OnModelCreating(modelBuilder);
     }

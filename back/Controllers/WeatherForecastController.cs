@@ -16,10 +16,12 @@ namespace LionDev.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private ApplicationDbContext _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         [HttpGet]
@@ -28,14 +30,16 @@ namespace LionDev.Controllers
         {        
             var identity = HttpContext.User.Identity as ClaimsIdentity;
 
-            var rToken = Jwt.validarToken(identity);
+            var rToken = Jwt.validarToken(identity, _context);
 
             if(!rToken.success) return rToken;
 
-            Usuario usuario = rToken.result;
+            //Usuario usuario = rToken.result;
+            Comprador comprador = rToken.result;
 
-            if (usuario.rol != "administrador")
-            {
+            //if (usuario.rol != "administrador")
+            if (comprador.rol != "Administrador")
+                {
                 return new
                 {
                     success = false,

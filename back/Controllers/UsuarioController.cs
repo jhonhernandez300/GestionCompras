@@ -15,10 +15,12 @@ namespace LionDev.Controllers
     public class UsuarioController : ControllerBase
     {        
         public IConfiguration _configuration;
+        private ApplicationDbContext _context;
 
-        public UsuarioController(IConfiguration configuration) 
+        public UsuarioController(IConfiguration configuration, ApplicationDbContext context) 
         { 
             _configuration = configuration; 
+            _context = context; 
         }
 
         [HttpPost]
@@ -26,18 +28,25 @@ namespace LionDev.Controllers
         public dynamic login([FromBody] Object optData)
         {
             var data = JsonConvert.DeserializeObject<dynamic>(optData.ToString());
-            string user = data.usuario.ToString();
-            string password = data.password.ToString();
+            //string user = data.usuario.ToString();
+            //string password = data.password.ToString();
+            string correo = data.CorreoElectronico.ToString();
+            string contrasena = data.Contrasena.ToString();
 
 
             try
             {
-                Usuario usuario = Usuario.DB()
-                .Where(x => x.usuario == user && x.password == password)
-                .FirstOrDefault();
+                //Usuario usuario = Usuario.DB()
+                //.Where(x => x.usuario == user && x.password == password)
+                //.FirstOrDefault();
 
-                if (usuario == null)
-                {
+                Comprador comprador = _context.Compradores
+                    .Where(x => x.CorreoElectronico == correo && x.Contrasena == contrasena)
+                    .FirstOrDefault();
+
+                //if (usuario == null)
+                if (comprador == null)
+                    {
                     return new
                     {
                         success = false,
@@ -54,8 +63,10 @@ namespace LionDev.Controllers
                     new Claim(JwtRegisteredClaimNames.Sub, jwt.Subject),                    
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),                    
                     new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                    new Claim("id", usuario.idUsuario),
-                    new Claim("usuario", usuario.usuario)
+                    //new Claim("id", usuario.idUsuario),
+                    //new Claim("usuario", usuario.usuario)
+                    new Claim("id", comprador.IdComprador.ToString()),
+                    new Claim("correo", comprador.CorreoElectronico)
                 };
 
                 var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key));                
