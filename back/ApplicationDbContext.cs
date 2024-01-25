@@ -118,7 +118,7 @@ namespace LionDev
                     .IsUnicode()
                     .HasColumnType("nvarchar(30)");
 
-                entity.Property(e => e.rol)
+                entity.Property(e => e.Rol)
                     .IsRequired()
                     .HasMaxLength(30)
                     .IsUnicode()
@@ -137,7 +137,7 @@ namespace LionDev
                     Contrasena = "Rada1",
                     Genero = "Masculino",
                     Direccion = "Calle 1",
-                    rol = "Administrador"
+                    Rol = "Administrador"
                 },
                 new Comprador
                 {
@@ -150,7 +150,7 @@ namespace LionDev
                     Contrasena = "James1",
                     Genero = "Masculino",
                     Direccion = "Calle 2",
-                    rol = "Empleado"
+                    Rol = "Empleado"
                 }         
             );     
 

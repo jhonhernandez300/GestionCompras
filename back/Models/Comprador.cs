@@ -32,7 +32,7 @@ namespace LionDev.Models
         public required string Direccion { get; set; }        
 
         //Longitud mínima 3, máxima de 30
-        public required string rol { get; set; }
+        public required string Rol { get; set; }
 
         //public ICollection<Factura>? Factura { get; set; }
     }

@@ -38,7 +38,7 @@ namespace LionDev.Controllers
             Comprador comprador = rToken.result;
 
             //if (usuario.rol != "administrador")
-            if (comprador.rol != "Administrador")
+            if (comprador.Rol != "Administrador")
                 {
                 return new
                 {

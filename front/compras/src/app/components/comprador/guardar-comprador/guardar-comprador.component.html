@@ -1,0 +1,145 @@
+<br><br>
+<h2 class="title">Registrarse</h2>
+<br>
+
+<div class="all">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+   
+    <div class="form-group">
+      <label>Nombres</label>
+      <input type="text" class="form-control"
+        formControlName="Nombres"     
+        placeholder="Mínimo 3 caracteres"   
+        [ngClass]="{ 'is-invalid': submitted && form['Nombres'].errors }"
+      />
+      <div *ngIf="submitted && form['Nombres'].errors" class="invalid-feedback">
+        <div *ngIf="form['Nombres']?.errors?.['required']">Los Nombres son requeridos</div>
+        <div *ngIf="form['Nombres']?.errors?.['minlength']">Los Nombres deben ser mínimo de 3 caracteres</div>
+        <div *ngIf="form['Nombres']?.errors?.['maxlength']">Los Nombres deben ser de máximo de 30 caracteres</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Apellidos</label>
+      <input
+        type="text"
+        formControlName="Apellidos"
+        class="form-control"
+        placeholder="Mínimo 3 caracteres"   
+        [ngClass]="{ 'is-invalid': submitted && form['Apellidos'].errors }"
+      />
+      <div *ngIf="submitted && form['Apellidos'].errors" class="invalid-feedback">
+        <div *ngIf="form['Apellidos']?.errors?.['required']">Los apellidos son requeridos</div>
+        <div *ngIf="form['Apellidos']?.errors?.['minlength']">Los apellidos deben ser mínimo de 3 caracteres</div>
+        <div *ngIf="form['Apellidos']?.errors?.['maxlength']">Los apellidos deben ser de máximo de 30 caracteres</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label>Correo electrónico</label>
+        <input
+          type="text"
+          formControlName="CorreoElectronico"
+          class="form-control"
+          placeholder="Mínimo 3 caracteres"   
+          [ngClass]="{ 'is-invalid': submitted && form['CorreoElectronico'].errors }"
+        />
+        <div *ngIf="submitted && form['CorreoElectronico'].errors" class="invalid-feedback">
+          <div *ngIf="form['CorreoElectronico']?.errors?.['required']">El Correo Electrónico son requerido</div>
+          <div *ngIf="form['CorreoElectronico']?.errors?.['minlength']">El Correo Electrónico debe ser mínimo de 9 caracteres</div>
+          <div *ngIf="form['CorreoElectronico']?.errors?.['maxlength']">El Correo Electrónico debe ser de máximo de 30 caracteres</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Tipo De Documento</label>
+        <input
+          type="text"
+          formControlName="TipoDeDocumento"
+          class="form-control"
+          placeholder="Mínimo 3 caracteres"   
+          [ngClass]="{ 'is-invalid': submitted && form['TipoDeDocumento'].errors }"
+        />
+        <div *ngIf="submitted && form['TipoDeDocumento'].errors" class="invalid-feedback">
+          <div *ngIf="form['TipoDeDocumento']?.errors?.['required']">El Tipo de documento son requerido</div>
+          <div *ngIf="form['TipoDeDocumento']?.errors?.['minlength']">El Tipo de documento debe ser mínimo de 3 caracteres</div>
+          <div *ngIf="form['TipoDeDocumento']?.errors?.['maxlength']">El Tipo de documento debe ser de máximo de 30 caracteres</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input
+          type="text"
+          formControlName="Contrasena"
+          class="form-control"
+          placeholder="Mínimo 3 caracteres"   
+          [ngClass]="{ 'is-invalid': submitted && form['Contrasena'].errors }"
+        />
+        <div *ngIf="submitted && form['Contrasena'].errors" class="invalid-feedback">
+          <div *ngIf="form['Contrasena']?.errors?.['required']">La Contraseña es requerido</div>
+          <div *ngIf="form['Contrasena']?.errors?.['minlength']">La Contraseña debe ser mínimo de 5 caracteres</div>          
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Género</label>
+        <input
+          type="text"
+          formControlName="Genero"
+          class="form-control"
+          placeholder="Mínimo 3 caracteres"   
+          [ngClass]="{ 'is-invalid': submitted && form['Genero'].errors }"
+        />
+        <div *ngIf="submitted && form['Genero'].errors" class="invalid-feedback">
+          <div *ngIf="form['Genero']?.errors?.['required']">El género es requerido</div>
+          <div *ngIf="form['Genero']?.errors?.['minlength']">El género debe ser mínimo de 5 caracteres</div>      
+          <div *ngIf="form['Genero']?.errors?.['minlength']">El género debe ser mínimo de 3 caracteres</div>    
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Dirección</label>
+        <input
+          type="text"
+          formControlName="Direccion"
+          class="form-control"
+          placeholder="Mínimo 3 caracteres"   
+          [ngClass]="{ 'is-invalid': submitted && form['Direccion'].errors }"
+        />
+        <div *ngIf="submitted && form['Direccion'].errors" class="invalid-feedback">
+          <div *ngIf="form['Direccion']?.errors?.['required']">La dirección es requerida</div>
+          <div *ngIf="form['Direccion']?.errors?.['minlength']">La dirección debe ser mínimo de 7 caracteres</div>      
+          <div *ngIf="form['Direccion']?.errors?.['minlength']">La dirección debe ser mínimo de 3 caracteres</div>    
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Rol</label>
+        <input
+          type="text"
+          formControlName="rol"
+          class="form-control"
+          placeholder="Mínimo 3 caracteres"   
+          [ngClass]="{ 'is-invalid': submitted && form['rol'].errors }"
+        />
+        <div *ngIf="submitted && form['rol'].errors" class="invalid-feedback">
+          <div *ngIf="form['rol']?.errors?.['required']">El rol es requerida</div>
+          <div *ngIf="form['rol']?.errors?.['minlength']">El rol debe ser mínimo de 3 caracteres</div>      
+          <div *ngIf="form['rol']?.errors?.['minlength']">El rol debe ser mínimo de 3 caracteres</div>    
+        </div>
+      </div>
+
+    <div class="form-group">      
+      <button type="submit" class="btn btn-primary">
+        Guardar
+      </button>
+      
+      <button type="button" (click)="onReset()" class="btn btn-warning float-right">
+        Limpiar
+      </button>      
+    </div>
+
+  </form>
+</div>
+
