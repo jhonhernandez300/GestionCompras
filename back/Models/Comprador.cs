@@ -6,7 +6,7 @@ namespace LionDev.Models
     public class Comprador
     {
         public required Guid IdComprador { get; set; }
-
+                
         //longitud mínima 3, máxima 30
         public required string Nombres { get; set; }
         
