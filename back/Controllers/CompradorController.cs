@@ -42,10 +42,11 @@ namespace Backend.Controllers
         // POST: Comprador/Guardar
         [HttpPost]
         [Route("Guardar")]
-        public async Task<ActionResult<Comprador>> Guardar(Comprador comprador)
+        public async Task<ActionResult<Comprador>> Guardar([FromBody] Comprador comprador)
         {
             try
             {
+                comprador.IdComprador = new Guid();
                 _context.Compradores.Add(comprador);
                 await _context.SaveChangesAsync();
 

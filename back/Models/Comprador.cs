@@ -22,7 +22,7 @@ namespace LionDev.Models
         //longitud mínima 5, máxima 16
         public required int NumeroDeDocumento { get; set; }
 
-        //Longitud mínima 5, debe tener mayúsculas, minúsculas y números
+        //Longitud mínima 5, máxima 30, debe tener mayúsculas, minúsculas y números
         public required string Contrasena { get; set; }
 
         //longitud mínima 8, máxima 9

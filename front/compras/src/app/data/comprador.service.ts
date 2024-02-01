@@ -10,8 +10,13 @@ export class CompradorService {
 
   constructor(private http: HttpClient) { }
 
-  GuardarComprador(Comprador: IComprador): Observable<any> {
-    return this.http.post('https://localhost:7127/Comprador/SaveComprador', Comprador);
+//   const headers = new HttpHeaders({
+//     'Content-Type': 'application/json'  
+// });
+
+  Guardar(Comprador: IComprador): Promise<any> {
+    console.log('Antes del servicio ', Comprador)  
+    return this.http.post('https://localhost:7145/Comprador/Guardar', Comprador).toPromise();
   }
 
   UpdateComprador(Comprador: IComprador): Observable<any> {    

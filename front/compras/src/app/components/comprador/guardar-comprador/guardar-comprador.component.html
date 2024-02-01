@@ -41,7 +41,7 @@
           type="text"
           formControlName="CorreoElectronico"
           class="form-control"
-          placeholder="Mínimo 3 caracteres"   
+          placeholder="Mínimo 9 caracteres"   
           [ngClass]="{ 'is-invalid': submitted && form['CorreoElectronico'].errors }"
         />
         <div *ngIf="submitted && form['CorreoElectronico'].errors" class="invalid-feedback">
@@ -68,17 +68,33 @@
       </div>
 
       <div class="form-group">
+        <label>Número De Documento</label>
+        <input
+          type="text"
+          formControlName="NumeroDeDocumento"
+          class="form-control"
+          placeholder="Mínimo 5 caracteres"   
+          [ngClass]="{ 'is-invalid': submitted && form['NumeroDeDocumento'].errors }"
+        />
+        <div *ngIf="submitted && form['NumeroDeDocumento'].errors" class="invalid-feedback">
+          <div *ngIf="form['NumeroDeDocumento']?.errors?.['required']">El Tipo de documento son requerido</div>
+          <div *ngIf="form['NumeroDeDocumento']?.errors?.['minlength']">El Tipo de documento debe ser mínimo de 5 caracteres</div>
+          <div *ngIf="form['NumeroDeDocumento']?.errors?.['maxlength']">El Tipo de documento debe ser de máximo de 16 caracteres</div>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label>Contraseña</label>
         <input
           type="text"
           formControlName="Contrasena"
           class="form-control"
-          placeholder="Mínimo 3 caracteres"   
+          placeholder="Mínimo 5 caracteres"   
           [ngClass]="{ 'is-invalid': submitted && form['Contrasena'].errors }"
         />
         <div *ngIf="submitted && form['Contrasena'].errors" class="invalid-feedback">
           <div *ngIf="form['Contrasena']?.errors?.['required']">La Contraseña es requerido</div>
-          <div *ngIf="form['Contrasena']?.errors?.['minlength']">La Contraseña debe ser mínimo de 5 caracteres</div>          
+          <div *ngIf="form['Contrasena']?.errors?.['minlength']">La Contraseña debe ser mínimo de 5 caracteres</div>   
         </div>
       </div>
 
@@ -88,13 +104,13 @@
           type="text"
           formControlName="Genero"
           class="form-control"
-          placeholder="Mínimo 3 caracteres"   
+          placeholder="Mínimo 5 caracteres"   
           [ngClass]="{ 'is-invalid': submitted && form['Genero'].errors }"
         />
         <div *ngIf="submitted && form['Genero'].errors" class="invalid-feedback">
           <div *ngIf="form['Genero']?.errors?.['required']">El género es requerido</div>
-          <div *ngIf="form['Genero']?.errors?.['minlength']">El género debe ser mínimo de 5 caracteres</div>      
-          <div *ngIf="form['Genero']?.errors?.['minlength']">El género debe ser mínimo de 3 caracteres</div>    
+          <div *ngIf="form['Genero']?.errors?.['minlength']">El género debe ser mínimo de 8 caracteres</div>      
+          <div *ngIf="form['Genero']?.errors?.['maxlength']">El género debe ser mínimo de 30 caracteres</div>    
         </div>
       </div>
 
@@ -104,13 +120,13 @@
           type="text"
           formControlName="Direccion"
           class="form-control"
-          placeholder="Mínimo 3 caracteres"   
+          placeholder="Mínimo 7 caracteres"   
           [ngClass]="{ 'is-invalid': submitted && form['Direccion'].errors }"
         />
         <div *ngIf="submitted && form['Direccion'].errors" class="invalid-feedback">
           <div *ngIf="form['Direccion']?.errors?.['required']">La dirección es requerida</div>
           <div *ngIf="form['Direccion']?.errors?.['minlength']">La dirección debe ser mínimo de 7 caracteres</div>      
-          <div *ngIf="form['Direccion']?.errors?.['minlength']">La dirección debe ser mínimo de 3 caracteres</div>    
+          <div *ngIf="form['Direccion']?.errors?.['maxlength']">La dirección debe ser mínimo de 30 caracteres</div>    
         </div>
       </div>
 
@@ -118,15 +134,15 @@
         <label>Rol</label>
         <input
           type="text"
-          formControlName="rol"
+          formControlName="Rol"
           class="form-control"
           placeholder="Mínimo 3 caracteres"   
-          [ngClass]="{ 'is-invalid': submitted && form['rol'].errors }"
+          [ngClass]="{ 'is-invalid': submitted && form['Rol'].errors }"
         />
-        <div *ngIf="submitted && form['rol'].errors" class="invalid-feedback">
-          <div *ngIf="form['rol']?.errors?.['required']">El rol es requerida</div>
-          <div *ngIf="form['rol']?.errors?.['minlength']">El rol debe ser mínimo de 3 caracteres</div>      
-          <div *ngIf="form['rol']?.errors?.['minlength']">El rol debe ser mínimo de 3 caracteres</div>    
+        <div *ngIf="submitted && form['Rol'].errors" class="invalid-feedback">
+          <div *ngIf="form['Rol']?.errors?.['required']">El rol es requerida</div>
+          <div *ngIf="form['Rol']?.errors?.['minlength']">El rol debe ser mínimo de 3 caracteres</div>      
+          <div *ngIf="form['Rol']?.errors?.['maxlength']">El rol debe ser mínimo de 30 caracteres</div>    
         </div>
       </div>
 
