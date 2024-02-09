@@ -19,6 +19,15 @@ export class CompradorService {
     return this.http.post('https://localhost:7145/Comprador/Guardar', Comprador).toPromise();
   }
 
+  Login(data: any): Promise<any> {
+    console.log('Antes del servicio ', data)  
+    return this.http.post('https://localhost:7145/Comprador/Login', data).toPromise();
+  }
+
+  GetWeather(): Promise<any> {
+    return this.http.get<any>('https://localhost:7145/WeatherForecast/Get').toPromise();    
+  } 
+
   UpdateComprador(Comprador: IComprador): Observable<any> {    
     return this.http.put('https://localhost:7127/Comprador/UpdateComprador', Comprador);
   }

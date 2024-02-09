@@ -46,6 +46,15 @@ export class GuardarCompradorComponent implements OnInit {
     this.myForm.reset();
   }
 
+  getWeather(): void {
+    this.compradorService.GetWeather().then((response: any) => {
+      console.log('response GetWeather', response);                     
+    })
+    .catch((error: any) => {
+      console.error(': ', error);
+    }) 
+  }
+
   onSubmit() {    
     this.submitted = true;
     console.log("Form value ", this.myForm.value);
