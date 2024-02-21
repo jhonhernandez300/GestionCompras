@@ -26,7 +26,7 @@ export class GuardarCompradorComponent implements OnInit {
       TipoDeDocumento: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       NumeroDeDocumento: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(16)]],                    
       Contrasena: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],   
-      Genero: ['', [, Validators.minLength(8), Validators.maxLength(9)]],
+      Genero: ['Masculino', Validators.required],
       Direccion: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(30)]],                    
       Rol: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]]
     });
@@ -62,19 +62,14 @@ export class GuardarCompradorComponent implements OnInit {
     if (this.myForm.invalid) {
       console.log('Error')          
       return
-    }     
+    }         
     
-    //this.form.get('IdComprador')?.setValue("58650f7d-2495-4a2c-9092-493dc2ecda63");
     this.compradorService.Guardar(this.myForm.value).then((response: any) => {
       console.log('response', response);               
     })
     .catch((error: any) => {
       console.error(': ', error);
     })     
-
-    // this.compradorService.Guardar(this.myForm.value).subscribe(              
-    //              result => console.log('success ', result),                 
-    //              error => console.log('error ', error)                 
-    //          );                 
+               
   }  
 }
