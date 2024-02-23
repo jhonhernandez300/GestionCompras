@@ -40,7 +40,8 @@
             />
             <div *ngIf="submitted && form['CorreoElectronico'].errors" class="invalid-feedback">
               <div *ngIf="form['CorreoElectronico']?.errors?.['required']">Requerido</div>
-              <div *ngIf="form['CorreoElectronico']?.errors?.['minlength']">Mínimo de 9 caracteres</div>
+              <div *ngIf="form['CorreoElectronico']?.errors?.['pattern']">Formato de correo electrónico inválido</div>
+              <div *ngIf="form['CorreoElectronico']?.errors?.['minlength']">Mínimo de 3 caracteres</div>
               <div *ngIf="form['CorreoElectronico']?.errors?.['maxlength']">Máximo de 30 caracteres</div>
             </div>
           </div>
@@ -113,18 +114,20 @@
             <div *ngIf="form['Direccion']?.errors?.['maxlength']">Mínimo de 30 caracteres</div>    
           </div>
         </div>
-  
-        <div>          
-          <input
-            type="text"
-            formControlName="Rol"          
-            placeholder="Rol"   
-            [ngClass]="{ 'is-invalid': submitted && form['Rol'].errors }"
-          />
-          <div *ngIf="submitted && form['Rol'].errors" class="invalid-feedback">
+
+        <div class="radio-container">
+          <div class="radio-row">
+            <input type="radio" id="administrador" name="rol" value="Administrador" formControlName="Rol">
+            <label for="administrador">Administrador</label>
+          </div>
+        
+          <div class="radio-row">
+            <input type="radio" id="empleado" name="rol" value="Empleado" formControlName="Rol" checked>
+            <label for="empleado">Empleado</label>
+          </div>
+            
+          <div *ngIf="submitted && form['Rol'].errors" id="invalid-feedback-rad">
             <div *ngIf="form['Rol']?.errors?.['required']">Requerido</div>
-            <div *ngIf="form['Rol']?.errors?.['minlength']">Mínimo de 3 caracteres</div>      
-            <div *ngIf="form['Rol']?.errors?.['maxlength']">Mínimo de 30 caracteres</div>    
           </div>
         </div>
 

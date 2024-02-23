@@ -104,3 +104,25 @@ input[type="button"] {
 #the-form select::-ms-expand {
     display: none; /* Oculta la flecha predeterminada del select en IE Edge */
 }
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    color: white; /* Cambiar el color del texto a blanco */
+    padding-left: 7rem;
+  }
+  
+  .radio-row {
+    display: flex;
+    align-items: center; /* Alinear elementos horizontalmente */
+    justify-content: flex-start; /* Alinear elementos a la izquierda */
+    margin-bottom: 5px; /* Espacio entre cada fila */
+  }
+  
+  .radio-row label {
+    margin-left: 10px; /* Espacio entre radio button y etiqueta */
+  }
+  
+  #invalid-feedback-rad{
+    padding-right: 7rem;
+  }

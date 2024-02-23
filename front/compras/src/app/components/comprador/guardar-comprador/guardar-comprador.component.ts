@@ -4,6 +4,7 @@ import { IComprador } from '../../../data/IComprador';
 import { CompradorService } from '../../../data/comprador.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-guardar-comprador',
@@ -22,13 +23,13 @@ export class GuardarCompradorComponent implements OnInit {
       IdComprador:['58650f7d-2495-4a2c-9092-493dc2ecda63'],          
       Nombres: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       Apellidos: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-      CorreoElectronico: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
+      CorreoElectronico: ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/), Validators.minLength(3), Validators.maxLength(30)]],
       TipoDeDocumento: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       NumeroDeDocumento: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(16)]],                    
       Contrasena: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],   
       Genero: ['Masculino', Validators.required],
       Direccion: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(30)]],                    
-      Rol: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]]
+      Rol: ['', Validators.required]
     });
   }
 
