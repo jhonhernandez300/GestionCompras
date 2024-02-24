@@ -18,7 +18,7 @@ namespace LionDev
         { }
 
         //public DbSet<DetalleFactura> DetalleFacturas { get; set; }
-        //public DbSet<Producto> Productos { get; set; }
+        public DbSet<Producto> Productos { get; set; }
         //public DbSet<Factura> Facturas { get; set; }
         //public DbSet<Marca> Marcas { get; set; }
         public DbSet<Comprador> Compradores { get; set; }
@@ -31,8 +31,8 @@ namespace LionDev
             //modelBuilder.Entity<DetalleFactura>()
             //    .HasKey(df => df.IdDetalleFactura);
 
-            //modelBuilder.Entity<Producto>()
-            //    .HasKey(df => df.IdProducto);
+            modelBuilder.Entity<Producto>()
+                .HasKey(df => df.IdProducto);
 
             //modelBuilder.Entity<Factura>()
             //    .HasKey(df => df.IdFactura);
@@ -123,8 +123,7 @@ namespace LionDev
                     .HasMaxLength(30)
                     .IsUnicode()
                     .HasColumnType("nvarchar(30)");
-            });
-
+            }); 
 
             // Seeds
             modelBuilder.Entity<Comprador>().HasData(
@@ -150,9 +149,54 @@ namespace LionDev
                     Contrasena = "James1",
                     Genero = "Masculino",
                     Direccion = "Calle 2",
-                    Rol = "Empleado"
-                }         
-            );     
+                    Rol = "Empleado"                 
+                }
+            );
+
+            modelBuilder.Entity<Producto>().HasData(              
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Chaqueta",
+                    Referencia = "C3",
+                    UrlImagen = "ProductosImagenes/C3.png",
+                    Descripcion = "Chaqueta",
+                    Color = "Negro",
+                    Cantidad = 15,
+                    Talla = "14",
+                    Valor = 140000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Masculino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Falda larga",
+                    Referencia = "FL3",
+                    UrlImagen = "ProductosImagenes/FL3.png",
+                    Descripcion = "Falda larga",
+                    Color = "Blanco y rojo",
+                    Cantidad = 15,
+                    Talla = "14",
+                    Valor = 35000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Femenino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Camiseta",
+                    Referencia = "CA5",
+                    UrlImagen = "ProductosImagenes/CA5.png",
+                    Descripcion = "Camiseta corta",
+                    Color = "Blanco",
+                    Cantidad = 25,
+                    Talla = "16",
+                    Valor = 45000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Femenino"
+                }
+            );
 
 
             base.OnModelCreating(modelBuilder);
