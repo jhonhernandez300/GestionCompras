@@ -34,5 +34,21 @@ namespace Backend.Controllers
 
             return productos;
         }
+
+        // GET: Producto/GetMasBuscados/{paraSexo}
+        [HttpGet("GetMasBuscados/{paraSexo}")]
+        public async Task<ActionResult<IEnumerable<Producto>>> GetGetMasBuscados(string paraSexo)
+        {
+            var productos = await _context.Productos
+                            .Where(p => p.EsDeLosMasBuscados == true && p.ParaSexo == paraSexo)
+                            .ToListAsync();
+
+            if (productos == null || !productos.Any())
+            {
+                return NotFound();
+            }
+
+            return productos;
+        }
     }
 }
