@@ -92,7 +92,7 @@ namespace Backend.Controllers
             return await _context.Compradores.ToListAsync();
         }
 
-        // GET: Comprador/Compradores/5
+        // GET: Comprador/GetComprador/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Comprador>> GetComprador(Guid id)
         {

@@ -54,13 +54,29 @@ namespace Backend.Migrations
                     table.PrimaryKey("PK_Productos", x => x.IdProducto);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Usuarios",
+                columns: table => new
+                {
+                    IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Nombres = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Apellidos = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    CorreoElectronico = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
+                    Rol = table.Column<string>(type: "nvarchar(13)", maxLength: 13, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuarios", x => x.IdUsuario);
+                });
+
             migrationBuilder.InsertData(
                 table: "Compradores",
                 columns: new[] { "IdComprador", "Apellidos", "Contrasena", "CorreoElectronico", "Direccion", "Genero", "Nombres", "NumeroDeDocumento", "Rol", "TipoDeDocumento" },
                 values: new object[,]
                 {
-                    { new Guid("3156310b-7290-482a-8fb2-8ae37d6b09fd"), "Rodriguez", "James1", "james@gmail.com", "Calle 2", "Masculino", "James", 12346, "Empleado", "Cedula" },
-                    { new Guid("56665716-5d79-4550-a3dd-8b0c1901124d"), "Falcao", "Rada1", "rada@gmail.com", "Calle 1", "Masculino", "Radamel", 12345, "Administrador", "Cedula" }
+                    { new Guid("aac00985-af38-4636-9fa9-241ffdead3e2"), "Rodriguez", "James1", "james@gmail.com", "Calle 2", "Masculino", "James", 12346, "Empleado", "Cedula" },
+                    { new Guid("be2302f6-c140-47f7-8433-a22fd4e29d90"), "Falcao", "Rada1", "rada@gmail.com", "Calle 1", "Masculino", "Radamel", 12345, "Administrador", "Cedula" }
                 });
 
             migrationBuilder.InsertData(
@@ -68,9 +84,19 @@ namespace Backend.Migrations
                 columns: new[] { "IdProducto", "Cantidad", "Color", "Descripcion", "EsDeLosMasBuscados", "Nombre", "ParaSexo", "Referencia", "Talla", "UrlImagen", "Valor" },
                 values: new object[,]
                 {
-                    { new Guid("8a3ddd4f-fffc-44e7-8666-1eb7b6638071"), 15, "Negro", "Chaqueta", true, "Chaqueta", "Masculino", "C3", "14", "ProductosImagenes/C3.png", 140000 },
-                    { new Guid("941b956e-3ac5-4d51-8a66-2601e21c9334"), 15, "Blanco y rojo", "Falda larga", true, "Falda larga", "Femenino", "FL3", "14", "ProductosImagenes/FL3.png", 35000 },
-                    { new Guid("f5cda447-6599-4dfc-af94-c674539edc03"), 25, "Blanco", "Camiseta corta", true, "Camiseta", "Femenino", "CA5", "16", "ProductosImagenes/CA5.png", 45000 }
+                    { new Guid("e4daf067-6a3a-42ec-a787-242cd3826506"), 15, "Blanco y rojo", "Falda larga", true, "Falda larga", "Femenino", "FL3", "14", "ProductosImagenes/FL3.png", 35000 },
+                    { new Guid("eec034eb-eec3-4fb0-9b4d-5466ac7679c0"), 15, "Negro", "Chaqueta", true, "Chaqueta", "Masculino", "C3", "14", "ProductosImagenes/C3.png", 140000 },
+                    { new Guid("f919dd8d-63d8-4ab6-a4a8-094444569fc9"), 25, "Blanco", "Camiseta corta", true, "Camiseta", "Femenino", "CA5", "16", "ProductosImagenes/CA5.png", 45000 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "IdUsuario", "Apellidos", "CorreoElectronico", "Nombres", "Password", "Rol" },
+                values: new object[,]
+                {
+                    { new Guid("b53bc02a-199f-49bd-a2b5-add5a4401977"), "Hernandez", "jhon@gmail.com", "Jhon", "Jhon1", "Administrador" },
+                    { new Guid("c7296d74-1865-4d62-aa8e-2f6eb2f77e21"), "Perez", "pedro@gmail.com", "Pedro", "Pedro1", "Empleado" },
+                    { new Guid("fc61491e-752f-4f7c-a8c9-d3d1626d30d5"), "Muñoz", "yurani@gmail.com", "Yurani", "Yurani1", "Comprador" }
                 });
         }
 
@@ -82,6 +108,9 @@ namespace Backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Productos");
+
+            migrationBuilder.DropTable(
+                name: "Usuarios");
         }
     }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240224040047_inicio")]
+    [Migration("20240227055037_inicio")]
     partial class inicio
     {
         /// <inheritdoc />
@@ -91,7 +91,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdComprador = new Guid("56665716-5d79-4550-a3dd-8b0c1901124d"),
+                            IdComprador = new Guid("be2302f6-c140-47f7-8433-a22fd4e29d90"),
                             Apellidos = "Falcao",
                             Contrasena = "Rada1",
                             CorreoElectronico = "rada@gmail.com",
@@ -104,7 +104,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdComprador = new Guid("3156310b-7290-482a-8fb2-8ae37d6b09fd"),
+                            IdComprador = new Guid("aac00985-af38-4636-9fa9-241ffdead3e2"),
                             Apellidos = "Rodriguez",
                             Contrasena = "James1",
                             CorreoElectronico = "james@gmail.com",
@@ -164,7 +164,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdProducto = new Guid("8a3ddd4f-fffc-44e7-8666-1eb7b6638071"),
+                            IdProducto = new Guid("eec034eb-eec3-4fb0-9b4d-5466ac7679c0"),
                             Cantidad = 15,
                             Color = "Negro",
                             Descripcion = "Chaqueta",
@@ -178,7 +178,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdProducto = new Guid("941b956e-3ac5-4d51-8a66-2601e21c9334"),
+                            IdProducto = new Guid("e4daf067-6a3a-42ec-a787-242cd3826506"),
                             Cantidad = 15,
                             Color = "Blanco y rojo",
                             Descripcion = "Falda larga",
@@ -192,7 +192,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdProducto = new Guid("f5cda447-6599-4dfc-af94-c674539edc03"),
+                            IdProducto = new Guid("f919dd8d-63d8-4ab6-a4a8-094444569fc9"),
                             Cantidad = 25,
                             Color = "Blanco",
                             Descripcion = "Camiseta corta",
@@ -203,6 +203,71 @@ namespace Backend.Migrations
                             Talla = "16",
                             UrlImagen = "ProductosImagenes/CA5.png",
                             Valor = 45000
+                        });
+                });
+
+            modelBuilder.Entity("LionDev.Models.Usuario", b =>
+                {
+                    b.Property<Guid>("IdUsuario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Apellidos")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("CorreoElectronico")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Nombres")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(12)
+                        .HasColumnType("nvarchar(12)");
+
+                    b.Property<string>("Rol")
+                        .IsRequired()
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
+
+                    b.HasKey("IdUsuario");
+
+                    b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            IdUsuario = new Guid("b53bc02a-199f-49bd-a2b5-add5a4401977"),
+                            Apellidos = "Hernandez",
+                            CorreoElectronico = "jhon@gmail.com",
+                            Nombres = "Jhon",
+                            Password = "Jhon1",
+                            Rol = "Administrador"
+                        },
+                        new
+                        {
+                            IdUsuario = new Guid("fc61491e-752f-4f7c-a8c9-d3d1626d30d5"),
+                            Apellidos = "Muñoz",
+                            CorreoElectronico = "yurani@gmail.com",
+                            Nombres = "Yurani",
+                            Password = "Yurani1",
+                            Rol = "Comprador"
+                        },
+                        new
+                        {
+                            IdUsuario = new Guid("c7296d74-1865-4d62-aa8e-2f6eb2f77e21"),
+                            Apellidos = "Perez",
+                            CorreoElectronico = "pedro@gmail.com",
+                            Nombres = "Pedro",
+                            Password = "Pedro1",
+                            Rol = "Empleado"
                         });
                 });
 #pragma warning restore 612, 618

@@ -22,6 +22,7 @@ namespace LionDev
         //public DbSet<Factura> Facturas { get; set; }
         //public DbSet<Marca> Marcas { get; set; }
         public DbSet<Comprador> Compradores { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +34,9 @@ namespace LionDev
 
             modelBuilder.Entity<Producto>()
                 .HasKey(df => df.IdProducto);
+
+            modelBuilder.Entity<Usuario>()
+               .HasKey(df => df.IdUsuario);
 
             //modelBuilder.Entity<Factura>()
             //    .HasKey(df => df.IdFactura);
@@ -123,9 +127,39 @@ namespace LionDev
                     .HasMaxLength(30)
                     .IsUnicode()
                     .HasColumnType("nvarchar(30)");
-            }); 
+            });
 
             // Seeds
+            modelBuilder.Entity<Usuario>().HasData(
+             new Usuario
+             {
+                 IdUsuario = Guid.NewGuid(),
+                 Nombres = "Jhon",
+                 Apellidos = "Hernandez",
+                 CorreoElectronico = "jhon@gmail.com",
+                 Password = "Jhon1",                 
+                 Rol = "Administrador"
+             },
+             new Usuario
+             {
+                 IdUsuario = Guid.NewGuid(),
+                 Nombres = "Yurani",
+                 Apellidos = "Muñoz",
+                 CorreoElectronico = "yurani@gmail.com",
+                 Password = "Yurani1",
+                 Rol = "Comprador"
+             },
+            new Usuario
+            {
+                IdUsuario = Guid.NewGuid(),
+                Nombres = "Pedro",
+                Apellidos = "Perez",
+                CorreoElectronico = "pedro@gmail.com",
+                Password = "Pedro1",
+                Rol = "Empleado"
+            }
+            );
+
             modelBuilder.Entity<Comprador>().HasData(
                 new Comprador { IdComprador = Guid.NewGuid(), 
                     Nombres = "Radamel",
