@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240227055037_inicio")]
+    [Migration("20240227223211_inicio")]
     partial class inicio
     {
         /// <inheritdoc />
@@ -91,7 +91,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdComprador = new Guid("be2302f6-c140-47f7-8433-a22fd4e29d90"),
+                            IdComprador = new Guid("d2981da8-a0a5-4500-983d-37ab35c4a486"),
                             Apellidos = "Falcao",
                             Contrasena = "Rada1",
                             CorreoElectronico = "rada@gmail.com",
@@ -99,12 +99,12 @@ namespace Backend.Migrations
                             Genero = "Masculino",
                             Nombres = "Radamel",
                             NumeroDeDocumento = 12345,
-                            Rol = "Administrador",
+                            Rol = "Comprador",
                             TipoDeDocumento = "Cedula"
                         },
                         new
                         {
-                            IdComprador = new Guid("aac00985-af38-4636-9fa9-241ffdead3e2"),
+                            IdComprador = new Guid("9bd0a392-f87a-4990-ad96-f65d884e435e"),
                             Apellidos = "Rodriguez",
                             Contrasena = "James1",
                             CorreoElectronico = "james@gmail.com",
@@ -112,7 +112,7 @@ namespace Backend.Migrations
                             Genero = "Masculino",
                             Nombres = "James",
                             NumeroDeDocumento = 12346,
-                            Rol = "Empleado",
+                            Rol = "Comprador",
                             TipoDeDocumento = "Cedula"
                         });
                 });
@@ -164,7 +164,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdProducto = new Guid("eec034eb-eec3-4fb0-9b4d-5466ac7679c0"),
+                            IdProducto = new Guid("eebae9d7-0b84-43a5-95c6-06364de62fef"),
                             Cantidad = 15,
                             Color = "Negro",
                             Descripcion = "Chaqueta",
@@ -178,7 +178,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdProducto = new Guid("e4daf067-6a3a-42ec-a787-242cd3826506"),
+                            IdProducto = new Guid("23131161-8dbc-4d60-9063-e3d5a99b7610"),
                             Cantidad = 15,
                             Color = "Blanco y rojo",
                             Descripcion = "Falda larga",
@@ -192,7 +192,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdProducto = new Guid("f919dd8d-63d8-4ab6-a4a8-094444569fc9"),
+                            IdProducto = new Guid("1803481a-5bff-4bba-b46c-ee9b4a638d64"),
                             Cantidad = 25,
                             Color = "Blanco",
                             Descripcion = "Camiseta corta",
@@ -244,30 +244,12 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdUsuario = new Guid("b53bc02a-199f-49bd-a2b5-add5a4401977"),
+                            IdUsuario = new Guid("1a103f61-6a10-4a96-b575-a1217594c6c5"),
                             Apellidos = "Hernandez",
                             CorreoElectronico = "jhon@gmail.com",
                             Nombres = "Jhon",
                             Password = "Jhon1",
                             Rol = "Administrador"
-                        },
-                        new
-                        {
-                            IdUsuario = new Guid("fc61491e-752f-4f7c-a8c9-d3d1626d30d5"),
-                            Apellidos = "Muñoz",
-                            CorreoElectronico = "yurani@gmail.com",
-                            Nombres = "Yurani",
-                            Password = "Yurani1",
-                            Rol = "Comprador"
-                        },
-                        new
-                        {
-                            IdUsuario = new Guid("c7296d74-1865-4d62-aa8e-2f6eb2f77e21"),
-                            Apellidos = "Perez",
-                            CorreoElectronico = "pedro@gmail.com",
-                            Nombres = "Pedro",
-                            Password = "Pedro1",
-                            Rol = "Empleado"
                         });
                 });
 #pragma warning restore 612, 618

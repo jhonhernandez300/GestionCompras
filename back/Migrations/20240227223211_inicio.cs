@@ -75,8 +75,8 @@ namespace Backend.Migrations
                 columns: new[] { "IdComprador", "Apellidos", "Contrasena", "CorreoElectronico", "Direccion", "Genero", "Nombres", "NumeroDeDocumento", "Rol", "TipoDeDocumento" },
                 values: new object[,]
                 {
-                    { new Guid("aac00985-af38-4636-9fa9-241ffdead3e2"), "Rodriguez", "James1", "james@gmail.com", "Calle 2", "Masculino", "James", 12346, "Empleado", "Cedula" },
-                    { new Guid("be2302f6-c140-47f7-8433-a22fd4e29d90"), "Falcao", "Rada1", "rada@gmail.com", "Calle 1", "Masculino", "Radamel", 12345, "Administrador", "Cedula" }
+                    { new Guid("9bd0a392-f87a-4990-ad96-f65d884e435e"), "Rodriguez", "James1", "james@gmail.com", "Calle 2", "Masculino", "James", 12346, "Comprador", "Cedula" },
+                    { new Guid("d2981da8-a0a5-4500-983d-37ab35c4a486"), "Falcao", "Rada1", "rada@gmail.com", "Calle 1", "Masculino", "Radamel", 12345, "Comprador", "Cedula" }
                 });
 
             migrationBuilder.InsertData(
@@ -84,20 +84,15 @@ namespace Backend.Migrations
                 columns: new[] { "IdProducto", "Cantidad", "Color", "Descripcion", "EsDeLosMasBuscados", "Nombre", "ParaSexo", "Referencia", "Talla", "UrlImagen", "Valor" },
                 values: new object[,]
                 {
-                    { new Guid("e4daf067-6a3a-42ec-a787-242cd3826506"), 15, "Blanco y rojo", "Falda larga", true, "Falda larga", "Femenino", "FL3", "14", "ProductosImagenes/FL3.png", 35000 },
-                    { new Guid("eec034eb-eec3-4fb0-9b4d-5466ac7679c0"), 15, "Negro", "Chaqueta", true, "Chaqueta", "Masculino", "C3", "14", "ProductosImagenes/C3.png", 140000 },
-                    { new Guid("f919dd8d-63d8-4ab6-a4a8-094444569fc9"), 25, "Blanco", "Camiseta corta", true, "Camiseta", "Femenino", "CA5", "16", "ProductosImagenes/CA5.png", 45000 }
+                    { new Guid("1803481a-5bff-4bba-b46c-ee9b4a638d64"), 25, "Blanco", "Camiseta corta", true, "Camiseta", "Femenino", "CA5", "16", "ProductosImagenes/CA5.png", 45000 },
+                    { new Guid("23131161-8dbc-4d60-9063-e3d5a99b7610"), 15, "Blanco y rojo", "Falda larga", true, "Falda larga", "Femenino", "FL3", "14", "ProductosImagenes/FL3.png", 35000 },
+                    { new Guid("eebae9d7-0b84-43a5-95c6-06364de62fef"), 15, "Negro", "Chaqueta", true, "Chaqueta", "Masculino", "C3", "14", "ProductosImagenes/C3.png", 140000 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "IdUsuario", "Apellidos", "CorreoElectronico", "Nombres", "Password", "Rol" },
-                values: new object[,]
-                {
-                    { new Guid("b53bc02a-199f-49bd-a2b5-add5a4401977"), "Hernandez", "jhon@gmail.com", "Jhon", "Jhon1", "Administrador" },
-                    { new Guid("c7296d74-1865-4d62-aa8e-2f6eb2f77e21"), "Perez", "pedro@gmail.com", "Pedro", "Pedro1", "Empleado" },
-                    { new Guid("fc61491e-752f-4f7c-a8c9-d3d1626d30d5"), "Muñoz", "yurani@gmail.com", "Yurani", "Yurani1", "Comprador" }
-                });
+                values: new object[] { new Guid("1a103f61-6a10-4a96-b575-a1217594c6c5"), "Hernandez", "jhon@gmail.com", "Jhon", "Jhon1", "Administrador" });
         }
 
         /// <inheritdoc />

@@ -139,25 +139,7 @@ namespace LionDev
                  CorreoElectronico = "jhon@gmail.com",
                  Password = "Jhon1",                 
                  Rol = "Administrador"
-             },
-             new Usuario
-             {
-                 IdUsuario = Guid.NewGuid(),
-                 Nombres = "Yurani",
-                 Apellidos = "Muñoz",
-                 CorreoElectronico = "yurani@gmail.com",
-                 Password = "Yurani1",
-                 Rol = "Comprador"
-             },
-            new Usuario
-            {
-                IdUsuario = Guid.NewGuid(),
-                Nombres = "Pedro",
-                Apellidos = "Perez",
-                CorreoElectronico = "pedro@gmail.com",
-                Password = "Pedro1",
-                Rol = "Empleado"
-            }
+             }          
             );
 
             modelBuilder.Entity<Comprador>().HasData(
@@ -170,7 +152,7 @@ namespace LionDev
                     Contrasena = "Rada1",
                     Genero = "Masculino",
                     Direccion = "Calle 1",
-                    Rol = "Administrador"
+                    Rol = "Comprador"
                 },
                 new Comprador
                 {
@@ -183,7 +165,7 @@ namespace LionDev
                     Contrasena = "James1",
                     Genero = "Masculino",
                     Direccion = "Calle 2",
-                    Rol = "Empleado"                 
+                    Rol = "Comprador"
                 }
             );
 
