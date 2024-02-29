@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240227223211_inicio")]
+    [Migration("20240229161302_inicio")]
     partial class inicio
     {
         /// <inheritdoc />
@@ -24,98 +24,6 @@ namespace Backend.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("LionDev.Models.Comprador", b =>
-                {
-                    b.Property<Guid>("IdComprador")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Apellidos")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(true)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Contrasena")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(true)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("CorreoElectronico")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(true)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Direccion")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(true)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("Genero")
-                        .IsRequired()
-                        .HasMaxLength(9)
-                        .IsUnicode(true)
-                        .HasColumnType("nvarchar(9)");
-
-                    b.Property<string>("Nombres")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(true)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<int>("NumeroDeDocumento")
-                        .HasMaxLength(16)
-                        .IsUnicode(true)
-                        .HasColumnType("int");
-
-                    b.Property<string>("Rol")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(true)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("TipoDeDocumento")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .IsUnicode(true)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("IdComprador");
-
-                    b.ToTable("Compradores");
-
-                    b.HasData(
-                        new
-                        {
-                            IdComprador = new Guid("d2981da8-a0a5-4500-983d-37ab35c4a486"),
-                            Apellidos = "Falcao",
-                            Contrasena = "Rada1",
-                            CorreoElectronico = "rada@gmail.com",
-                            Direccion = "Calle 1",
-                            Genero = "Masculino",
-                            Nombres = "Radamel",
-                            NumeroDeDocumento = 12345,
-                            Rol = "Comprador",
-                            TipoDeDocumento = "Cedula"
-                        },
-                        new
-                        {
-                            IdComprador = new Guid("9bd0a392-f87a-4990-ad96-f65d884e435e"),
-                            Apellidos = "Rodriguez",
-                            Contrasena = "James1",
-                            CorreoElectronico = "james@gmail.com",
-                            Direccion = "Calle 2",
-                            Genero = "Masculino",
-                            Nombres = "James",
-                            NumeroDeDocumento = 12346,
-                            Rol = "Comprador",
-                            TipoDeDocumento = "Cedula"
-                        });
-                });
 
             modelBuilder.Entity("LionDev.Models.Producto", b =>
                 {
@@ -164,7 +72,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdProducto = new Guid("eebae9d7-0b84-43a5-95c6-06364de62fef"),
+                            IdProducto = new Guid("655360b2-9b43-4119-ba75-6791e2782e5a"),
                             Cantidad = 15,
                             Color = "Negro",
                             Descripcion = "Chaqueta",
@@ -178,7 +86,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdProducto = new Guid("23131161-8dbc-4d60-9063-e3d5a99b7610"),
+                            IdProducto = new Guid("2dec61e1-bdf2-4812-9b7f-629981f445fb"),
                             Cantidad = 15,
                             Color = "Blanco y rojo",
                             Descripcion = "Falda larga",
@@ -192,7 +100,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdProducto = new Guid("1803481a-5bff-4bba-b46c-ee9b4a638d64"),
+                            IdProducto = new Guid("35c9fe8f-5419-495a-bbfe-22473b3cea4b"),
                             Cantidad = 25,
                             Color = "Blanco",
                             Descripcion = "Camiseta corta",
@@ -217,25 +125,44 @@ namespace Backend.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<string>("Contrasena")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CorreoElectronico")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Genero")
+                        .IsRequired()
+                        .HasMaxLength(9)
+                        .HasColumnType("nvarchar(9)");
 
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("NumeroDeDocumento")
                         .IsRequired()
-                        .HasMaxLength(12)
-                        .HasColumnType("nvarchar(12)");
+                        .HasMaxLength(16)
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("Rol")
                         .IsRequired()
-                        .HasMaxLength(13)
-                        .HasColumnType("nvarchar(13)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("TipoDeDocumento")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("IdUsuario");
 
@@ -244,12 +171,29 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdUsuario = new Guid("1a103f61-6a10-4a96-b575-a1217594c6c5"),
-                            Apellidos = "Hernandez",
-                            CorreoElectronico = "jhon@gmail.com",
-                            Nombres = "Jhon",
-                            Password = "Jhon1",
-                            Rol = "Administrador"
+                            IdUsuario = new Guid("5630ff27-8c29-407c-9263-e35be20c634c"),
+                            Apellidos = "Falcao",
+                            Contrasena = "Rada1",
+                            CorreoElectronico = "rada@gmail.com",
+                            Direccion = "Calle 1",
+                            Genero = "Masculino",
+                            Nombres = "Radamel",
+                            NumeroDeDocumento = "12345",
+                            Rol = "Comprador",
+                            TipoDeDocumento = "Cedula"
+                        },
+                        new
+                        {
+                            IdUsuario = new Guid("5d1d4802-13c3-4c72-8d73-70d104af9af2"),
+                            Apellidos = "Rodriguez",
+                            Contrasena = "James1",
+                            CorreoElectronico = "james@gmail.com",
+                            Direccion = "Calle 2",
+                            Genero = "Masculino",
+                            Nombres = "James",
+                            NumeroDeDocumento = "12346",
+                            Rol = "Administrador",
+                            TipoDeDocumento = "Cedula"
                         });
                 });
 #pragma warning restore 612, 618

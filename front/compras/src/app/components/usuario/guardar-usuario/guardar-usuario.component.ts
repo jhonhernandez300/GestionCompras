@@ -23,11 +23,16 @@ export class GuardarUsuarioComponent implements OnInit {
       IdUsuario:['58650f7d-2495-4a2c-9092-493dc2ecda63'],          
       Nombres: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       Apellidos: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-      CorreoElectronico: ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/), Validators.minLength(3), Validators.maxLength(30)]],
+      CorreoElectronico: ['', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/), Validators.minLength(5), Validators.maxLength(30)]],
       TipoDeDocumento: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       NumeroDeDocumento: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(16)]],                    
-      Contrasena: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],   
-      Genero: ['Masculino', Validators.required],
+      Contrasena: ['', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(30),
+        this.validarContrasena // Agregamos nuestra validación personalizada
+      ]],
+      Genero: ['Masculino', [Validators.required, Validators.minLength(8), Validators.maxLength(9)]],
       Direccion: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(30)]],                    
       Rol: ['Comprador']
     });
@@ -35,6 +40,17 @@ export class GuardarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.iniciarFormulario();
+  }
+
+  validarContrasena(control: any) {
+    const contrasena = control.value;
+    const tieneMayuscula = /[A-Z]/.test(contrasena);
+    const tieneMinuscula = /[a-z]/.test(contrasena);
+    const tieneNumero = /\d/.test(contrasena);
+
+    const esValido = tieneMayuscula && tieneMinuscula && tieneNumero;
+
+    return esValido ? null : { 'contrasenaInvalida': true };
   }
 
   get form(): { [key: string]: AbstractControl; }
@@ -63,7 +79,7 @@ export class GuardarUsuarioComponent implements OnInit {
     if (this.myForm.invalid) {
       console.log('Error')          
       return
-    }         
+    }             
     
     this.usuarioService.Guardar(this.myForm.value).then((response: any) => {
       console.log('response', response);               

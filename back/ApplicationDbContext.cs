@@ -66,64 +66,7 @@ namespace LionDev
             //modelBuilder.Entity<Producto>()
             //    .HasOne(df => df.Marca)
             //    .WithMany(f => f.Producto)
-            //    .HasForeignKey(df => df.IdMarca);
-
-            //Reglas de los campos
-            modelBuilder.Entity<Usuario>(entity =>
-            {
-                entity.Property(e => e.Nombres)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .IsUnicode()
-                    .HasColumnType("nvarchar(30)"); // Tipo de columna y longitud en la base de datos
-
-                entity.Property(e => e.Apellidos)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .IsUnicode()
-                    .HasColumnType("nvarchar(30)");
-
-                entity.Property(e => e.CorreoElectronico)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .IsUnicode()
-                    .HasColumnType("nvarchar(30)");
-
-                entity.Property(e => e.TipoDeDocumento)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .IsUnicode()
-                    .HasColumnType("nvarchar(30)");
-
-                entity.Property(e => e.NumeroDeDocumento)
-                    .IsRequired()
-                    .HasMaxLength(16)
-                    .IsUnicode();
-
-                entity.Property(e => e.Contrasena)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .IsUnicode()
-                    .HasColumnType("nvarchar(30)");
-
-                entity.Property(e => e.Genero)
-                    .IsRequired()
-                    .HasMaxLength(9)
-                    .IsUnicode()
-                    .HasColumnType("nvarchar(9)");
-
-                entity.Property(e => e.Direccion)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .IsUnicode()
-                    .HasColumnType("nvarchar(30)");
-
-                entity.Property(e => e.Rol)
-                    .IsRequired()
-                    .HasMaxLength(30)
-                    .IsUnicode()
-                    .HasColumnType("nvarchar(30)");
-            });
+            //    .HasForeignKey(df => df.IdMarca);            
 
             // Seeds
             modelBuilder.Entity<Usuario>().HasData(
@@ -133,7 +76,7 @@ namespace LionDev
                     Apellidos = "Falcao",
                     CorreoElectronico = "rada@gmail.com",
                     TipoDeDocumento = "Cedula",
-                    NumeroDeDocumento = 12345,
+                    NumeroDeDocumento = "12345",
                     Contrasena = "Rada1",
                     Genero = "Masculino",
                     Direccion = "Calle 1",
@@ -146,7 +89,7 @@ namespace LionDev
                     Apellidos = "Rodriguez",
                     CorreoElectronico = "james@gmail.com",
                     TipoDeDocumento = "Cedula",
-                    NumeroDeDocumento = 12346,
+                    NumeroDeDocumento = "12346",
                     Contrasena = "James1",
                     Genero = "Masculino",
                     Direccion = "Calle 2",

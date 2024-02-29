@@ -109,15 +109,15 @@ namespace Backend.Controllers
         // POST: Usuario/Guardar
         [HttpPost]
         [Route("Guardar")]
-        public async Task<ActionResult<Usuario>> Guardar([FromBody] Usuario Usuario)
+        public async Task<ActionResult<Usuario>> Guardar([FromBody] Usuario usuario)
         {
             try
             {
-                Usuario.IdUsuario = new Guid();
-                _context.Usuarios.Add(Usuario);
+                usuario.IdUsuario = Guid.NewGuid();
+                _context.Usuarios.Add(usuario);
                 await _context.SaveChangesAsync();
 
-                return CreatedAtAction(nameof(GetUsuario), new { id = Usuario.IdUsuario }, Usuario);
+                return CreatedAtAction(nameof(GetUsuario), new { id = usuario.IdUsuario }, usuario);
             }
             catch (Exception ex)
             {                
