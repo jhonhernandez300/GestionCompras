@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GuardarCompradorComponent } from '../app/components/comprador/guardar-comprador/guardar-comprador.component';
-import { LoginCompradorComponent } from '../app/components/comprador/login-comprador/login-comprador.component';
+import { GuardarUsuarioComponent } from '../app/components/usuario/guardar-usuario/guardar-usuario.component';
+import { LoginUsuarioComponent } from '../app/components/usuario/login-usuario/login-usuario.component';
 
 const routes: Routes = [
-  { path: 'guardar-comprador', component: GuardarCompradorComponent },
-  { path: 'login-comprador', component: LoginCompradorComponent },
-  { path: '', component: LoginCompradorComponent }, 
-  { path: '**', component: LoginCompradorComponent } 
+  { path: 'guardar-usuario', component: GuardarUsuarioComponent },
+  { path: 'login-usuario', component: LoginUsuarioComponent },
+  { path: '', component: LoginUsuarioComponent }, 
+  { path: '**', component: LoginUsuarioComponent } 
 ];
 
 @NgModule({

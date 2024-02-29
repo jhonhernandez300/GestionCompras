@@ -1,5 +1,5 @@
-export interface IComprador {
-    IdComprador: string;
+export interface IUsuario {
+    IdUsuario: string;
     Nombres: string,
     Apellidos: string,
     CorreoElectronico: string, 

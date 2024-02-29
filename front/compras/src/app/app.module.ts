@@ -5,16 +5,16 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GuardarCompradorComponent } from './components/comprador/guardar-comprador/guardar-comprador.component';
-import { LoginCompradorComponent } from './components/comprador/login-comprador/login-comprador.component';
+import { GuardarUsuarioComponent } from './components/usuario/guardar-usuario/guardar-usuario.component';
+import { LoginUsuarioComponent } from './components/usuario/login-usuario/login-usuario.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AuthInterceptor } from './data/authInterceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GuardarCompradorComponent,
-    LoginCompradorComponent,
+    GuardarUsuarioComponent,
+    LoginUsuarioComponent,
     MenuComponent
   ],
   imports: [

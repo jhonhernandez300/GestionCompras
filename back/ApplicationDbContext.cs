@@ -20,8 +20,7 @@ namespace LionDev
         //public DbSet<DetalleFactura> DetalleFacturas { get; set; }
         public DbSet<Producto> Productos { get; set; }
         //public DbSet<Factura> Facturas { get; set; }
-        //public DbSet<Marca> Marcas { get; set; }
-        public DbSet<Comprador> Compradores { get; set; }
+        //public DbSet<Marca> Marcas { get; set; }        
         public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -42,10 +41,7 @@ namespace LionDev
             //    .HasKey(df => df.IdFactura);
 
             //modelBuilder.Entity<Marca>()
-            //    .HasKey(df => df.IdMarca);
-
-            modelBuilder.Entity<Comprador>()
-                .HasKey(df => df.IdComprador);
+            //    .HasKey(df => df.IdMarca);         
 
             //modelBuilder.Entity<DetalleFactura>()
             //    .Property(df => df.Cantidad)
@@ -73,7 +69,7 @@ namespace LionDev
             //    .HasForeignKey(df => df.IdMarca);
 
             //Reglas de los campos
-            modelBuilder.Entity<Comprador>(entity =>
+            modelBuilder.Entity<Usuario>(entity =>
             {
                 entity.Property(e => e.Nombres)
                     .IsRequired()
@@ -131,19 +127,8 @@ namespace LionDev
 
             // Seeds
             modelBuilder.Entity<Usuario>().HasData(
-             new Usuario
-             {
-                 IdUsuario = Guid.NewGuid(),
-                 Nombres = "Jhon",
-                 Apellidos = "Hernandez",
-                 CorreoElectronico = "jhon@gmail.com",
-                 Password = "Jhon1",                 
-                 Rol = "Administrador"
-             }          
-            );
-
-            modelBuilder.Entity<Comprador>().HasData(
-                new Comprador { IdComprador = Guid.NewGuid(), 
+                new Usuario { 
+                    IdUsuario = Guid.NewGuid(), 
                     Nombres = "Radamel",
                     Apellidos = "Falcao",
                     CorreoElectronico = "rada@gmail.com",
@@ -154,9 +139,9 @@ namespace LionDev
                     Direccion = "Calle 1",
                     Rol = "Comprador"
                 },
-                new Comprador
+                new Usuario
                 {
-                    IdComprador = Guid.NewGuid(),
+                    IdUsuario = Guid.NewGuid(),
                     Nombres = "James",
                     Apellidos = "Rodriguez",
                     CorreoElectronico = "james@gmail.com",
@@ -165,7 +150,7 @@ namespace LionDev
                     Contrasena = "James1",
                     Genero = "Masculino",
                     Direccion = "Calle 2",
-                    Rol = "Comprador"
+                    Rol = "Administrador"
                 }
             );
 

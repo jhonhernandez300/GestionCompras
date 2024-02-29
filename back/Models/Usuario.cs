@@ -1,24 +1,39 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace LionDev.Models
 {
     public class Usuario
     {
         public required Guid IdUsuario { get; set; }
-
-        [StringLength(30, ErrorMessage = "Longitud máxima para los nombres es 30")]
+                
+        //longitud mínima 3, máxima 30
         public required string Nombres { get; set; }
-
-        [StringLength(30, ErrorMessage = "Longitud máxima para los apellidos es 30")]
+        
+        //longitud mínima 3, máxima 30        
         public required string Apellidos { get; set; }
 
-        [StringLength(30, ErrorMessage = "Longitud máxima para el correo es 30")]
+        //longitud mínima 9, máxima 30
         public required string CorreoElectronico { get; set; }
 
-        [StringLength(12, ErrorMessage = "Longitud máxima para el password es 12")]
-        public required string Password { get; set; }
+        //longitud mínima 3, máxima 30
+        public required string TipoDeDocumento { get; set; }
 
-        [StringLength(13, ErrorMessage = "Longitud máxima para el password es 13")]
-        public  string Rol { get; set; }             
+        //longitud mínima 5, máxima 16
+        public required int NumeroDeDocumento { get; set; }
+
+        //Longitud mínima 5, máxima 30, debe tener mayúsculas, minúsculas y números
+        public required string Contrasena { get; set; }
+
+        //longitud mínima 8, máxima 9
+        public string? Genero { get; set; }
+
+        //longitud mínima 7, máxima 30
+        public required string Direccion { get; set; }        
+
+        //Longitud mínima 3, máxima de 30
+        public required string Rol { get; set; }
+
+        //public ICollection<Factura>? Factura { get; set; }
     }
 }
