@@ -15,8 +15,8 @@ export class ProductoService {
     return this.http.get('https://localhost:7145/Producto/GetByName'+  "/" + nombre);
   }
   
-  GetMasBuscados(paraSexo: string): Observable<any> {  
-    console.log("Antes de consultar Producto GetByName, el nombre del producto es " + paraSexo);   
-    return this.http.get('https://localhost:7145/Producto/GetMasBuscados'+  "/" + paraSexo);
+  GetMasBuscados(paraSexo: string): Observable<any> {
+    console.log("Antes de consultar Producto GetByName, el nombre del producto es " + paraSexo);
+    return this.http.get('https://localhost:7145/Producto/GetMasBuscados' + "/" + paraSexo);
   }
 }

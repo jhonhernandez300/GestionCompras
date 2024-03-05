@@ -9,13 +9,15 @@ import { GuardarUsuarioComponent } from './components/usuario/guardar-usuario/gu
 import { LoginUsuarioComponent } from './components/usuario/login-usuario/login-usuario.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { AuthInterceptor } from './data/authInterceptor';
+import { ObtenerComponent } from './components/producto/obtener/obtener.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GuardarUsuarioComponent,
     LoginUsuarioComponent,
-    MenuComponent
+    MenuComponent,
+    ObtenerComponent
   ],
   imports: [
     BrowserModule,

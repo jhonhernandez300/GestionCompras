@@ -1,0 +1,61 @@
+<br><br>
+<h2>Productos</h2>
+<br> 
+<br><br>   
+<div *ngIf="items">    
+    <table class="table ">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">¿Tiene hermanos?</th>                
+                <th scope="col">Fecha de nacimiento</th>
+                <th scope="col">¿Casado?</th>
+                <th scope="col">Ubicación de la foto</th>                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items ">                
+                <td>{{ item.names}}</td>
+                <td>{{ item.lastNames }}</td>
+
+                <td *ngIf="item.hasBrothersOrSisters == 1; then doesnt else has">
+                    <!-- No -->
+                </td>
+                <ng-template #doesnt>
+                    No
+                  </ng-template>
+                <ng-template #has>
+                    Sí
+                </ng-template>
+
+                <td>{{ item.dateOfBirth }}</td>
+
+                <td *ngIf="item.married == 1; then married else single">
+                    <!-- Casado -->
+                </td>
+                <ng-template #married>
+                    Casado
+                  </ng-template> 
+                <ng-template #single>
+                    Soltero
+                </ng-template>                   
+                  
+                <td>{{ item.photoLocation }}</td>                
+                <td>
+                    <button type="button" class="btn btn-danger">
+                        <a [routerLink]="['/deleteEmployee', item.idEmployee]">Borrar</a>
+                    </button>
+                </td>               
+
+                <td>
+                    <button type="button" class="btn btn-primary">
+                        <a [routerLink]="['/updateEmployee', item.idEmployee]">Editar</a>
+                    </button>
+                </td>               
+            </tr>
+        </tbody>
+    </table>
+    <br><br>       
+</div>
+
