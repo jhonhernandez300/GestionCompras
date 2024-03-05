@@ -83,6 +83,7 @@
             formControlName="Contrasena"          
             placeholder="Contraseña"   
             [ngClass]="{ 'is-invalid': submitted && form['Contrasena'].errors }"
+            (focus)="onPasswordFocus()"
           />
           <div *ngIf="submitted && form['Contrasena'].errors" class="invalid-feedback">
             <div *ngIf="form['Contrasena']?.errors?.['required']">Requerido</div>

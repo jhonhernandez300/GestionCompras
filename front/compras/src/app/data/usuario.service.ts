@@ -28,6 +28,10 @@ export class UsuarioService {
     return this.http.get<any>('https://localhost:7145/WeatherForecast/Get').toPromise();    
   } 
 
+  CheckEmail(email: string): Observable<any> {    
+    return this.http.get('https://localhost:7145/Usuario/CheckEmail'+  "/" +  email);
+  }
+
   UpdateUsuario(Usuario: IUsuario): Observable<any> {    
     return this.http.put('https://localhost:7127/Usuario/UpdateUsuario', Usuario);
   }

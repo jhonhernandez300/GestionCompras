@@ -106,8 +106,8 @@ namespace Backend.Controllers
             return Usuario;
         }
 
-        //POST: Usuario/CheckEmail
-        [HttpPost("CheckEmail/{email}")]
+        //GET: Usuario/CheckEmail
+        [HttpGet("CheckEmail/{email}")]
         public async Task<ActionResult<bool>> CheckEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
