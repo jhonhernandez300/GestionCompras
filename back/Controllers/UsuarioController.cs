@@ -106,6 +106,21 @@ namespace Backend.Controllers
             return Usuario;
         }
 
+        //POST: Usuario/CheckEmail
+        [HttpPost("CheckEmail/{email}")]
+        public async Task<ActionResult<bool>> CheckEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return BadRequest("El correo electrónico no puede estar vacío.");
+            }
+
+            var usuario = await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.CorreoElectronico == email);
+
+            return usuario != null;
+        }
+
         // POST: Usuario/Guardar
         [HttpPost]
         [Route("Guardar")]
