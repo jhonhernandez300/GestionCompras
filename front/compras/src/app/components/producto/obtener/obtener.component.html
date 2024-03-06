@@ -1,35 +1,35 @@
-<br><br>
 <h2>Productos</h2>
-<br> 
-<br><br>   
-<div *ngIf="items">    
-    <table class="table ">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Referencia</th>
-                <th scope="col">UrlImagen</th>                
-                <th scope="col">Descripción</th>
-                <th scope="col">Color</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Talla</th>
-                <th scope="col">Valor</th>
-                <th scope="col">EsDeLosMasBuscados</th>
-                <th scope="col">ParaSexo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of items ">                
-                <td>{{ item.nombre}}</td>
-                <td>{{ item.referencia }}</td>
-                <td>{{ item.urlImagen }}</td>
-                <td>{{ item.descripcion }}</td>
-                <td>{{ item.color }}</td>
-                <td>{{ item.cantidad }}</td>
-                <td>{{ item.talla }}</td>
-                <td>{{ item.valor }}</td>
-                <td>{{ item.esDeLosMasBuscados }}</td>
-                <td>{{ item.paraSexo }}</td>
+<div *ngIf="items" class="container">    
+    <div class="table">
+        <div class="table-header">
+            
+                <div scope="col" class="header-item">Nombre</div>
+                <div scope="col" class="header-item">Referencia</div>
+                <div scope="col" class="header-item">Url Imagen</div>                
+                <div scope="col" class="header-item">Descripción</div>
+                <div scope="col" class="header-item">Color</div>
+                <div scope="col" class="header-item">Cantidad</div>
+                <div scope="col" class="header-item">Talla</div>
+                <div scope="col" class="header-item">Valor</div>
+                <div scope="col" class="header-item">Más Buscados</div>
+                <div scope="col" class="header-item">Sexo</div>
+            
+        </div>
+        
+            <div *ngFor="let item of items"  class="table-content">         
+                <div class="table-row">
+                    <div class="table-data">{{ item.nombre}}</div>
+                    <div class="table-data">{{ item.referencia }}</div>
+                    <div class="table-data">{{ item.urlImagen.slice(0, 10) + '...' }}</div>
+                    <div class="table-data">{{ item.descripcion }}</div>
+                    <div class="table-data">{{ item.color }}</div>
+                    <div class="table-data">{{ item.cantidad }}</div>
+                    <div class="table-data">{{ item.talla }}</div>
+                    <div class="table-data">{{ item.valor }}</div>
+                    <div class="table-data">{{ item.esDeLosMasBuscados }}</div>
+                    <div class="table-data">{{ item.paraSexo }}</div>
+                </div>       
+              
 
                 <!-- <td>
                     <button type="button" class="btn btn-danger">
@@ -42,9 +42,9 @@
                         <a [routerLink]="['/updateEmployee', item.idEmployee]">Editar</a>
                     </button>
                 </td>                -->
-            </tr>
-        </tbody>
-    </table>
+            </div>
+        
+    </div>
     <br><br>       
 </div>
 
