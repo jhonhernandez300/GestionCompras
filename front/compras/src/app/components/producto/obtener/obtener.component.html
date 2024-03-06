@@ -6,43 +6,32 @@
     <table class="table ">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Nombres</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">¿Tiene hermanos?</th>                
-                <th scope="col">Fecha de nacimiento</th>
-                <th scope="col">¿Casado?</th>
-                <th scope="col">Ubicación de la foto</th>                
+                <th scope="col">Nombre</th>
+                <th scope="col">Referencia</th>
+                <th scope="col">UrlImagen</th>                
+                <th scope="col">Descripción</th>
+                <th scope="col">Color</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Talla</th>
+                <th scope="col">Valor</th>
+                <th scope="col">EsDeLosMasBuscados</th>
+                <th scope="col">ParaSexo</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of items ">                
-                <td>{{ item.names}}</td>
-                <td>{{ item.lastNames }}</td>
+                <td>{{ item.nombre}}</td>
+                <td>{{ item.referencia }}</td>
+                <td>{{ item.urlImagen }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td>{{ item.color }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.talla }}</td>
+                <td>{{ item.valor }}</td>
+                <td>{{ item.esDeLosMasBuscados }}</td>
+                <td>{{ item.paraSexo }}</td>
 
-                <td *ngIf="item.hasBrothersOrSisters == 1; then doesnt else has">
-                    <!-- No -->
-                </td>
-                <ng-template #doesnt>
-                    No
-                  </ng-template>
-                <ng-template #has>
-                    Sí
-                </ng-template>
-
-                <td>{{ item.dateOfBirth }}</td>
-
-                <td *ngIf="item.married == 1; then married else single">
-                    <!-- Casado -->
-                </td>
-                <ng-template #married>
-                    Casado
-                  </ng-template> 
-                <ng-template #single>
-                    Soltero
-                </ng-template>                   
-                  
-                <td>{{ item.photoLocation }}</td>                
-                <td>
+                <!-- <td>
                     <button type="button" class="btn btn-danger">
                         <a [routerLink]="['/deleteEmployee', item.idEmployee]">Borrar</a>
                     </button>
@@ -52,7 +41,7 @@
                     <button type="button" class="btn btn-primary">
                         <a [routerLink]="['/updateEmployee', item.idEmployee]">Editar</a>
                     </button>
-                </td>               
+                </td>                -->
             </tr>
         </tbody>
     </table>
