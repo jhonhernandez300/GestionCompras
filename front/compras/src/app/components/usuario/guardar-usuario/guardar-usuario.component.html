@@ -74,6 +74,9 @@
             <div *ngIf="form['CorreoElectronico']?.errors?.['pattern']">Formato de correo electrónico inválido</div>
             <div *ngIf="form['CorreoElectronico']?.errors?.['minlength']">Mínimo de 3 caracteres</div>
             <div *ngIf="form['CorreoElectronico']?.errors?.['maxlength']">Máximo de 30 caracteres</div>
+            <div *ngIf="submitted && form['CorreoElectronico'].errors && form['CorreoElectronico'].errors['correoExiste']" class="invalid-feedback">
+              <div>El correo electrónico ya está registrado</div>
+            </div>
           </div>
         </div>
 
