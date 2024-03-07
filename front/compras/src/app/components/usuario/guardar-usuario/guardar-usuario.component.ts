@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../../utils/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-guardar-usuario',
@@ -15,8 +17,13 @@ import { Observable } from 'rxjs';
 export class GuardarUsuarioComponent implements OnInit {
   myForm!: FormGroup;    
   submitted = false; 
+  emailChecked = false;
 
-  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private usuarioService: UsuarioService,
+    private dialog: MatDialog
+  ) { }
 
   iniciarFormulario(){
     this.myForm = this.formBuilder.group({           
@@ -62,6 +69,7 @@ export class GuardarUsuarioComponent implements OnInit {
   onReset(): void {
     this.submitted = false;
     this.myForm.reset();
+    this.emailChecked = false;
   }
 
   getWeather(): void {
@@ -73,12 +81,13 @@ export class GuardarUsuarioComponent implements OnInit {
     }) 
   }
 
-  onSubmit() {    
+  onSubmit() {        
     this.submitted = true;
-    console.log("Form value ", this.myForm.value);
+    console.log("Form value ", this.myForm.value);    
+    this.EmailChecked();
 
     if (this.myForm.invalid) {
-      console.log('Error')          
+      console.log('Error de validación')          
       return
     }             
     
@@ -87,25 +96,49 @@ export class GuardarUsuarioComponent implements OnInit {
     })
     .catch((error: any) => {
       console.error(': ', error);
+      this.mostrarError(error.message);
     })                    
   }  
   
   checkEmailExists(email: string): Observable<any> {
     return this.usuarioService.CheckEmail(email);
   }
-  
-  onPasswordFocus() {
-    const email = this.myForm.get('CorreoElectronico')?.value;
-    if (email) {
-      this.checkEmailExists(email).subscribe(
-        (response) => {                    
-          console.log('Correo electrónico ya existe:', response);          
-          this.myForm.get('CorreoElectronico')?.setErrors({ 'correoExiste': true });
-        },
-        (error) => {          
-          console.error('Error al verificar el correo electrónico:', error);          
-        }
-      );
+
+  EmailChecked(){
+    console.log('En EmailChecked');    
+    if(this.emailChecked == false){
+      const email = this.myForm.get('CorreoElectronico')?.value;
+      console.log(email);
+      if (email) {
+        this.checkEmailExists(email).subscribe(
+          (response) => {                    
+            console.log('Correo electrónico ya existe:', response);          
+            this.myForm.get('CorreoElectronico')?.setErrors({ 'correoExiste': true });
+            this.mostrarError('Correo electrónico ya existe:');  
+          },
+          (error) => {          
+            console.error('Error al verificar el correo electrónico:', error);      
+            this.mostrarError(error);    
+          }
+        );
+        this.emailChecked = true;
+      }      
     }
   }
+  
+  onPasswordFocus() {
+    this.EmailChecked();
+  }
+
+  mostrarError(mensaje: string): void {
+    const dialogRef = this.dialog.open(ErrorDialogComponent, {
+      width: '250px',
+      data: { message: mensaje }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El diálogo se cerró');
+    });
+  }
 }
+
