@@ -4,6 +4,7 @@ import { IUsuario } from '../../../data/IUsuario';
 import { UsuarioService } from '../../../data/usuario.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-usuario',
@@ -14,8 +15,12 @@ export class LoginUsuarioComponent implements OnInit {
   myForm!: FormGroup;    
   submitted = false; 
 
-  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService) { }
-
+  constructor(
+    private formBuilder: FormBuilder, 
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) { }
+  
   iniciarFormulario(){
     this.myForm = this.formBuilder.group({                
       CorreoElectronico: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],                      
@@ -51,14 +56,14 @@ export class LoginUsuarioComponent implements OnInit {
     this.usuarioService.Login(this.myForm.value).then((response: any) => {
       console.log('response', response.result);               
       localStorage.setItem('token', response.result);
+      const currentDate = new Date();
+      const dateString = currentDate.toISOString();        
+      localStorage.setItem('last date', dateString);
+      this.router.navigate(['/producto-obtener']);
     })
     .catch((error: any) => {
       console.error(': ', error);
-    })     
-
-    // this.usuarioService.Guardar(this.myForm.value).subscribe(              
-    //              result => console.log('success ', result),                 
-    //              error => console.log('error ', error)                 
-    //          );                 
+    })    
+             
   }  
 }

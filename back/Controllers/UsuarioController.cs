@@ -10,8 +10,8 @@ using System.Text;
 
 namespace Backend.Controllers
 {
-    [ApiController]
-    [Route("Usuario")]
+    [Route("[controller]")]
+    [ApiController]    
     public class UsuarioController : ControllerBase
     {
         public IConfiguration _configuration;
@@ -86,8 +86,8 @@ namespace Backend.Controllers
         }
 
         // GET: Usuario/Usuarios
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
+        [HttpGet("Obtener")]
+        public async Task<ActionResult<IEnumerable<Usuario>>> Obtener()
         {
             return await _context.Usuarios.ToListAsync();
         }

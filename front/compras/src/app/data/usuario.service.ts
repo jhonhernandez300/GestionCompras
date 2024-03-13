@@ -7,12 +7,28 @@ import { IUsuario } from './IUsuario';
   providedIn: 'root'
 })
 export class UsuarioService {
+  lastDate: any;  
+  fechaHoraActual: Date = new Date();
 
   constructor(private http: HttpClient) { }
 
 //   const headers = new HttpHeaders({
 //     'Content-Type': 'application/json'  
 // });
+
+EstaAutenticado(){  
+  const lastDate = localStorage.getItem('last date');  
+  
+  if (lastDate === null) {   
+    this.lastDate = new Date(1900, 0, 1, 0, 0, 0); 
+  }
+
+  const diferenciaMs = this.lastDate.getTime() - this.fechaHoraActual.getTime();    
+    // Convertir la diferencia de milisegundos a minutos
+  const diferenciaMinutos = diferenciaMs / (1000 * 60);
+    // Comprobar si la diferencia es mayor a 20 minutos
+  return (diferenciaMinutos > 20) ? false : true;
+}
 
   Guardar(Usuario: IUsuario): Promise<any> {
     console.log('Antes del servicio ', Usuario)  
