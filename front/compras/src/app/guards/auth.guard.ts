@@ -7,6 +7,7 @@ import { UsuarioService } from '../data/usuario.service';
 // export const authGuard: CanActivateFn = (route, state) => {
 //   return true;
 // };
+@Injectable()
 export class AuthGuard implements CanActivate  {
   constructor(
     private usuarioService: UsuarioService, 
