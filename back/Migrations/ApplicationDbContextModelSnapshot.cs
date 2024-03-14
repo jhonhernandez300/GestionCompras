@@ -69,7 +69,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdProducto = new Guid("655360b2-9b43-4119-ba75-6791e2782e5a"),
+                            IdProducto = new Guid("5fb7fa03-5219-4026-824e-85e6c3fc0776"),
                             Cantidad = 15,
                             Color = "Negro",
                             Descripcion = "Chaqueta",
@@ -83,7 +83,21 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdProducto = new Guid("2dec61e1-bdf2-4812-9b7f-629981f445fb"),
+                            IdProducto = new Guid("b961e5a0-fa58-4240-a635-7c4b16e1f1f0"),
+                            Cantidad = 25,
+                            Color = "Blanco",
+                            Descripcion = "Medias",
+                            EsDeLosMasBuscados = true,
+                            Nombre = "Medias",
+                            ParaSexo = "Masculino",
+                            Referencia = "M3",
+                            Talla = "5",
+                            UrlImagen = "ProductosImagenes/M3.png",
+                            Valor = 3000
+                        },
+                        new
+                        {
+                            IdProducto = new Guid("b91d12a9-117f-464f-a478-7730ed36a9ed"),
                             Cantidad = 15,
                             Color = "Blanco y rojo",
                             Descripcion = "Falda larga",
@@ -97,7 +111,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdProducto = new Guid("35c9fe8f-5419-495a-bbfe-22473b3cea4b"),
+                            IdProducto = new Guid("b041f1e9-6935-4c49-b5c8-6029bede1b87"),
                             Cantidad = 25,
                             Color = "Blanco",
                             Descripcion = "Camiseta corta",
@@ -168,7 +182,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdUsuario = new Guid("5630ff27-8c29-407c-9263-e35be20c634c"),
+                            IdUsuario = new Guid("39cf0156-5037-49c9-a776-79ab5eeb8acf"),
                             Apellidos = "Falcao",
                             Contrasena = "Rada1",
                             CorreoElectronico = "rada@gmail.com",
@@ -181,7 +195,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdUsuario = new Guid("5d1d4802-13c3-4c72-8d73-70d104af9af2"),
+                            IdUsuario = new Guid("d6707a61-1c71-4eff-93e1-71431534c721"),
                             Apellidos = "Rodriguez",
                             Contrasena = "James1",
                             CorreoElectronico = "james@gmail.com",

@@ -1,3 +1,10 @@
+.background-image {
+    background-image: url('../../../../assets/fondo-mujer-joven.png'); 
+    background-position: right center; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height: 91vh;
+}  
 p{     
     font-weight: 500;
     text-align: center;  
@@ -12,13 +19,14 @@ a {
 #global{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;        
 }
 #global > div {    
     width: 300px;       
 }
 #form-container {   
-    padding-top: 10rem;
+    padding-top: 4rem;
+    margin-bottom: 30px
 }
 #the-form{
     width: 300px;
@@ -70,4 +78,21 @@ input[type="button"] {
 #the-form input[type="submit"]:hover,
 #the-form input[type="button"]:hover {
     background: #2ecc71;
+}
+#registrese{    
+    height: 60px;    
+    background: #363434;
+    text-align: center;
+    border-radius: 10px;        
+    margin-left: 80px;
+}
+#registrese p{    
+    padding-top: 8px;    
+}
+#registrese a{
+    color: white;
+    padding-right: 60px;    
+}
+#registrese a:hover {
+    color: #3498db;
 }

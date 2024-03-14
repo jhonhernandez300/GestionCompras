@@ -1,6 +1,40 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-     
+    font-family: sans-serif;     
 }
+.footer {
+    background-color: white;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    padding-top: 2rem;
+  }
+  .letf{
+    width: 4rem;
+  }
+  .left img {
+    height: 4 0px; 
+  }
+  .right{
+    width: 3rem;
+  }  
+  .right a {
+    color: blue; 
+    margin-left: 10px;
+  }  
+  .right a:hover {
+    color: gray;
+  }
+  .center{
+    color: black; 
+    width: 25rem;
+  }
+  

@@ -1,4 +1,4 @@
-<div id="global">
+<div id="global" class="background-image">
   <form [formGroup]="myForm" id="the-form" (ngSubmit)="onSubmit()">
     <div><h1>Registrarse</h1></div>
    
@@ -31,7 +31,7 @@
           </div>
         </div>
     
-          <div>            
+        <div>            
             <input
               type="text"
               formControlName="TipoDeDocumento"          
@@ -43,9 +43,9 @@
               <div *ngIf="form['TipoDeDocumento']?.errors?.['minlength']">Mínimo de 3 caracteres</div>
               <div *ngIf="form['TipoDeDocumento']?.errors?.['maxlength']">Máximo de 30 caracteres</div>
             </div>
-          </div>
+        </div>
     
-          <div>            
+        <div>            
             <input
               type="text"
               formControlName="NumeroDeDocumento"          
@@ -57,7 +57,7 @@
               <div *ngIf="form['NumeroDeDocumento']?.errors?.['minlength']">Mínimo de 5 caracteres</div>
               <div *ngIf="form['NumeroDeDocumento']?.errors?.['maxlength']">Máximo de 16 caracteres</div>
             </div>
-          </div>
+        </div>
       </div>
   
       <div class="form-content">

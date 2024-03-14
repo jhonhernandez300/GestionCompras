@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IProducto } from '../../../data/IProducto';
 import { ProductoService } from '../../../data/producto.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-obtener',
@@ -25,9 +27,16 @@ export class ObtenerComponent  implements OnInit {
   items!: any[];
   paraSexo = 'Masculino';
 
-  constructor(private productoService: ProductoService) { }
+  constructor(
+    private productoService: ProductoService,
+    private route: ActivatedRoute, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.paraSexo = this.route.snapshot.params['sexo'];
+    console.log('paraSexo' + this.paraSexo);
+
     this.productoService.GetMasBuscados(this.paraSexo)
       .subscribe({
         next: (response) => {

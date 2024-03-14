@@ -1,17 +1,14 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
-
 body {  
   font-family: "Source Sans Pro", sans-serif;
   margin: 0;
 }
-
 h1, h2, h3, h4, h5, h6 {
     padding-top: 2rem;
     margin: 0;
 }
-
 .container {
   /* max-width: 1000px; */
   margin-right: auto;
@@ -20,36 +17,42 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   padding-top: 6rem;  
+  background-image: url('../../../../assets/camisas.png'); 
+  background-position: right center; 
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  height: 95vh;
 }
-
 .table {  
-  width: 100%;
-  border: 1px solid #EEEEEE;  
+  width: 90%;
+  border: 0px;  
+  
 }
-
 .table-header {
   display: flex;
   width: 100%;     
   background: #000;
   padding: 18px 0; 
-  color: white;  
+  color: #2ecc71;  
+  font-weight: bold;
+  border-radius: 12px;
 }
-
+.header-item:hover {
+  font-weight: lighter;
+}
 .table-row {
   display: flex;
   width: 100%;
   padding: 18px 0;
+  border-radius: 12px;
 }
-.table-row:nth-of-type(odd) {
+.table-row:nth-child(even) {
+  background: white; 
+}
+.table-row:nth-child(odd) {
   background: #EEEEEE;
 }
-
 .table-data, .header-item {
   flex: 1 1 20%;
   text-align: center;
 }
-
-.header-item {
-  text-transform: uppercase;
-}
-

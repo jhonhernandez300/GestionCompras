@@ -115,6 +115,20 @@ namespace LionDev
                 new Producto
                 {
                     IdProducto = Guid.NewGuid(),
+                    Nombre = "Medias",
+                    Referencia = "M3",
+                    UrlImagen = "ProductosImagenes/M3.png",
+                    Descripcion = "Medias",
+                    Color = "Blanco",
+                    Cantidad = 25,
+                    Talla = "5",
+                    Valor = 3000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Masculino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
                     Nombre = "Falda larga",
                     Referencia = "FL3",
                     UrlImagen = "ProductosImagenes/FL3.png",

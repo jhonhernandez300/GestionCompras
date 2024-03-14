@@ -1,6 +1,6 @@
 #global{
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     padding-left: 20rem;
 }
 #main-section{
@@ -9,11 +9,11 @@
     align-items: center;
 }
 #main-section > div {    
-    width: 600px;       
-    height: 600px;    
+    width: 400px;       
+    height: 440px;    
 }
 .form-content > div{
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
 }
 #form-container {   
     padding-top: 10rem;
@@ -126,3 +126,10 @@ input[type="button"] {
   #invalid-feedback-rad{
     padding-right: 7rem;
   }
+  .background-image {
+    background-image: url('../../../../assets/fondo-mujer-joven-derecha.png'); 
+    background-position: right center; 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    height: 95vh;
+}  
