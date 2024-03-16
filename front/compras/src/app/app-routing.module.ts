@@ -6,8 +6,8 @@ import { ObtenerComponent } from '../app/components/producto/obtener/obtener.com
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  // { path: 'producto-obtener/:sexo', component: ObtenerComponent, canActivate: [AuthGuard]},
-  { path: 'producto-obtener/:sexo', component: ObtenerComponent},
+  // { path: 'producto-obtener/:parametroDeBusqueda', component: ObtenerComponent, canActivate: [AuthGuard]},
+  { path: 'producto-obtener/:parametroDeBusqueda', component: ObtenerComponent},
   { path: 'guardar-usuario', component: GuardarUsuarioComponent },
   { path: 'login-usuario', component: LoginUsuarioComponent },
   { path: '', component: LoginUsuarioComponent }, 

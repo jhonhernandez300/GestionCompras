@@ -25,7 +25,7 @@ export class ObtenerComponent  implements OnInit {
   };
 
   items!: any[];
-  paraSexo = 'Masculino';
+  parametroDeBusqueda = 'Masculino';
 
   constructor(
     private productoService: ProductoService,
@@ -34,10 +34,32 @@ export class ObtenerComponent  implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.paraSexo = this.route.snapshot.params['sexo'];
-    console.log('paraSexo' + this.paraSexo);
+    this.parametroDeBusqueda = this.route.snapshot.params['parametroDeBusqueda'];
+    console.log('parametroDeBusqueda' + this.parametroDeBusqueda);
 
-    this.productoService.GetMasBuscados(this.paraSexo)
+    if (this.parametroDeBusqueda === 'Masculino' || this.parametroDeBusqueda === 'Femenino') {
+      this.ConsultarMasBuscados(this.parametroDeBusqueda);
+    }else{
+      this.ConsultarNombreProducto(this.parametroDeBusqueda);
+    }
+    
+  }
+
+  ConsultarMasBuscados(sexo: string){
+    this.productoService.GetMasBuscados(sexo)
+      .subscribe({
+        next: (response) => {
+          console.log('response', response);
+          this.items = response;
+        },
+        error: (error) => {
+          console.error(': ', error);
+        }
+      });
+  }
+
+  ConsultarNombreProducto(nombreProducto: string){
+    this.productoService.GetByName(nombreProducto)
       .subscribe({
         next: (response) => {
           console.log('response', response);
