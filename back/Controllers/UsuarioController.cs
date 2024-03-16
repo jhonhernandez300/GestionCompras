@@ -50,7 +50,7 @@ namespace Backend.Controllers
                 }
 
                 var jwt = _configuration.GetSection("Jwt")
-                .Get<Jwt>();
+                    .Get<Jwt>();
 
                 var claims = new[]
                 {

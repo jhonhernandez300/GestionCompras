@@ -1,6 +1,8 @@
 .menu {
-    background-color: #6d6b6b;
-  }
+  background-color: #6d6b6b;
+  display: flex; /* Para que los elementos internos se alineen en línea */
+  justify-content: space-between; /* Para distribuir el espacio entre los elementos internos */
+}
   
   .menu-list {
     list-style-type: none;
@@ -22,4 +24,19 @@
   .menu-item a:hover {
     background-color: #555;
   }
+  .right-content {
+    display: flex;
+    align-items: center; /* Para centrar verticalmente los elementos dentro del contenedor */
+    margin-right: 1rem; /* Ajusta el margen derecho para separar el contenido del borde del menú */
+  }
   
+  .right-content label {
+    color: white;
+    margin-right: 0.5rem; /* Espacio entre el label y el input */
+  }
+  .rollover-textbox{
+    border: solid white; 
+  }
+  .rollover-textbox:hover {
+    border: solid black; 
+  }
