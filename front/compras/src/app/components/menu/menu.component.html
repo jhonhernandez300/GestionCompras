@@ -16,8 +16,15 @@
     </ul>
 
     <div class="right-content">
-      <label for="producto">Producto</label>
-      <input type="text" id="producto" class="rollover-textbox" placeholder="Nombre del producto" title="Ingrese el nombre del producto">
+      <label for="producto">Producto</label>      
+      <input [(ngModel)]='textoDeInput' 
+        type="text" 
+        class="form-control" 
+        placeholder="" 
+        aria-label="" 
+        aria-describedby="basic-addon1"
+        (keyup.enter)="redirectToProduct()"
+      >
     </div>
     
   </nav>

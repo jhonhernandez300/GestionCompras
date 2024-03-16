@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -6,8 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  /*    logout() {
-    localStorage.removeItem("id_token");
-    localStorage.removeItem("expires_at");
-}*/
+  textoDeInput = '';
+
+  constructor(private router: Router) {}
+
+  redirectToProduct() {
+    console.log('textoDeInput ', this.textoDeInput);
+    this.router.navigate(['/producto-obtener', this.textoDeInput]);
+  }
 }
