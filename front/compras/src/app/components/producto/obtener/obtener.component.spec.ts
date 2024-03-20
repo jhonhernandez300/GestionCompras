@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ObtenerComponent } from './obtener.component';
+import { ActivatedRoute, RouterModule } from '@angular/router'; 
+import { of } from 'rxjs'; 
 
 describe('ObtenerComponent', () => {
   let component: ObtenerComponent;
@@ -8,7 +10,18 @@ describe('ObtenerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ObtenerComponent]
+      declarations: [ObtenerComponent],      
+      imports: [HttpClientModule, RouterModule.forRoot([])],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              params: { parametroDeBusqueda: 'Masculino' } // Establece el valor de los parámetros de la instantánea
+            }
+          }
+        }
+      ]
     })
     .compileComponents();
     

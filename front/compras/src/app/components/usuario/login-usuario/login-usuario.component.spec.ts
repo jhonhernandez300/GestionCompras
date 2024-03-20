@@ -1,14 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { LoginUsuarioComponent } from './login-usuario.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-describe('LoginCompradorComponent', () => {
+describe('LoginUsuarioComponent', () => {
   let component: LoginUsuarioComponent;
   let fixture: ComponentFixture<LoginUsuarioComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LoginUsuarioComponent]
+      declarations: [LoginUsuarioComponent],
+      imports: [HttpClientModule, ReactiveFormsModule, FormsModule],
     })
     .compileComponents();
     

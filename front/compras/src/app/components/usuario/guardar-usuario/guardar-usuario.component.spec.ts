@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { GuardarUsuarioComponent } from './guardar-usuario.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 describe('GuardarUsuarioComponent', () => {
   let component: GuardarUsuarioComponent;
@@ -8,7 +9,8 @@ describe('GuardarUsuarioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GuardarUsuarioComponent]
+      declarations: [GuardarUsuarioComponent],
+      imports: [HttpClientModule, ReactiveFormsModule, FormsModule],
     })
     .compileComponents();
     
@@ -18,6 +20,6 @@ describe('GuardarUsuarioComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+     expect(component).toBeTruthy();
   });
 });
