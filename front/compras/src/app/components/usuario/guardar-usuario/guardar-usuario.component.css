@@ -20,7 +20,7 @@
 }
 #the-form{
     width: 750px;
-    padding: 40px;        
+    padding: 23px;        
     background: #191919;
     text-align: center;
     border-radius: 24px;    
@@ -87,14 +87,14 @@ input[type="button"] {
     display: block;    
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #3498db; /* Cambia el color del borde según sea necesario */
+    border: 2px solid #3498db; 
     padding: 14px 10px;
     width: 200px;
     outline: none;
     color: white;
     border-radius: 24px;
     transition: 0.25s;
-    appearance: none; /* Oculta la flecha predeterminada del select */
+    appearance: none; 
 }
 
 #the-form select:focus {
@@ -127,9 +127,8 @@ input[type="button"] {
     padding-right: 7rem;
   }
   .background-image {
-    background-image: url('../../../../assets/fondo-mujer-joven-derecha.png'); 
-    background-position: right center; 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    height: 95vh;
+    background-image: url('../../../../assets/mujeres.jpg'); 
+    background-position: 90% 10%; 
+    background-size: 35% 35%; 
+    background-repeat: no-repeat;   
 }  

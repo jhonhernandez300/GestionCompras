@@ -1,9 +1,8 @@
 .background-image {
-    background-image: url('../../../../assets/fondo-mujer-joven.png'); 
-    background-position: right center; 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    height: 91vh;
+    background-image: url('../../../../assets/tienda.jpg');  
+    background-position: 90% 10%; 
+    background-size: 35% 35%; 
+    background-repeat: no-repeat;   
 }  
 p{     
     font-weight: 500;

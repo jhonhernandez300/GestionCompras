@@ -72,15 +72,6 @@ export class GuardarUsuarioComponent implements OnInit {
     this.emailChecked = false;
   }
 
-  getWeather(): void {
-    this.usuarioService.GetWeather().then((response: any) => {
-      console.log('response GetWeather', response);                     
-    })
-    .catch((error: any) => {
-      console.error(': ', error);
-    }) 
-  }
-
   onSubmit() {        
     this.submitted = true;
     console.log("Form value ", this.myForm.value);    
