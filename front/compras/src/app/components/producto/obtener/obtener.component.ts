@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { IProducto } from '../../../data/IProducto';
 import { ProductoService } from '../../../data/producto.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-obtener',
   templateUrl: './obtener.component.html',
-  styleUrl: './obtener.component.css'
+  styleUrls: ['./obtener.component.css']
 })
-export class ObtenerComponent  implements OnInit {
+export class ObtenerComponent implements OnInit, OnChanges {
   producto: IProducto = {
     IdProducto: '58650f7d-2495-4a2c-9092-493dc2ecda63',
     Nombre: '',
@@ -35,17 +34,22 @@ export class ObtenerComponent  implements OnInit {
 
   ngOnInit(): void {
     this.parametroDeBusqueda = this.route.snapshot.params['parametroDeBusqueda'];
-    console.log('parametroDeBusqueda' + this.parametroDeBusqueda);
-
-    if (this.parametroDeBusqueda === 'Masculino' || this.parametroDeBusqueda === 'Femenino') {
-      this.ConsultarMasBuscados(this.parametroDeBusqueda);
-    }else{
-      this.ConsultarNombreProducto(this.parametroDeBusqueda);
-    }
-    
+    this.consultarProductos();
   }
 
-  ConsultarMasBuscados(sexo: string){
+  ngOnChanges() {
+    this.consultarProductos();
+  }
+
+  consultarProductos() {
+    if (this.parametroDeBusqueda === 'Masculino' || this.parametroDeBusqueda === 'Femenino') {
+      this.consultarMasBuscados(this.parametroDeBusqueda);
+    } else {
+      this.consultarNombreProducto(this.parametroDeBusqueda);
+    }
+  }
+
+  consultarMasBuscados(sexo: string){
     this.productoService.GetMasBuscados(sexo)
       .subscribe({
         next: (response) => {
@@ -58,7 +62,7 @@ export class ObtenerComponent  implements OnInit {
       });
   }
 
-  ConsultarNombreProducto(nombreProducto: string){
+  consultarNombreProducto(nombreProducto: string){
     this.productoService.GetByName(nombreProducto)
       .subscribe({
         next: (response) => {

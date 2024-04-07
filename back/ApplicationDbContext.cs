@@ -101,10 +101,10 @@ namespace LionDev
                 new Producto
                 {
                     IdProducto = Guid.NewGuid(),
-                    Nombre = "Chaqueta",
-                    Referencia = "C3",
-                    UrlImagen = "ProductosImagenes/C3.png",
-                    Descripcion = "Chaqueta",
+                    Nombre = "Buso saco rick and morty fuck",
+                    Referencia = "BSRAMF",
+                    UrlImagen = "ProductosImagenes/buso-saco-rick-and-morty-fuck.png",
+                    Descripcion = "Buso saco rick and morty fuck",
                     Color = "Negro",
                     Cantidad = 15,
                     Talla = "14",
@@ -115,12 +115,26 @@ namespace LionDev
                 new Producto
                 {
                     IdProducto = Guid.NewGuid(),
-                    Nombre = "Medias",
-                    Referencia = "M3",
-                    UrlImagen = "ProductosImagenes/M3.png",
-                    Descripcion = "Medias",
-                    Color = "Blanco",
+                    Nombre = "Sudadera clásica nautica",
+                    Referencia = "SC",
+                    UrlImagen = "ProductosImagenes/sudadera-clasica-nautica.png",
+                    Descripcion = "Sudadera clásica nautica",
+                    Color = "Negro",
                     Cantidad = 25,
+                    Talla = "15",
+                    Valor = 145000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Masculino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Buzo compresión licra",
+                    Referencia = "BCL",
+                    UrlImagen = "ProductosImagenes/buzo-compresio-licra.png",
+                    Descripcion = "Buzo de compresión en licra protección UV",
+                    Color = "Negro",
+                    Cantidad = 35,
                     Talla = "5",
                     Valor = 3000,
                     EsDeLosMasBuscados = true,
@@ -129,28 +143,112 @@ namespace LionDev
                 new Producto
                 {
                     IdProducto = Guid.NewGuid(),
-                    Nombre = "Falda larga",
-                    Referencia = "FL3",
-                    UrlImagen = "ProductosImagenes/FL3.png",
-                    Descripcion = "Falda larga",
-                    Color = "Blanco y rojo",
-                    Cantidad = 15,
+                    Nombre = "Buzo saco anime",
+                    Referencia = "BSA",
+                    UrlImagen = "ProductosImagenes/buzo-saco-anime.png",
+                    Descripcion = "Buzo saco anime one piece",
+                    Color = "negro y colores en el centro",
+                    Cantidad = 19,
                     Talla = "14",
                     Valor = 35000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "masculino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Camiseta compresión licra",
+                    Referencia = "CCL",
+                    UrlImagen = "ProductosImagenes/buzo-saco-anime.png",
+                    Descripcion = "Camiseta corta",
+                    Color = "Blanco",
+                    Cantidad = 25,
+                    Talla = "16",
+                    Valor = 45000,
                     EsDeLosMasBuscados = true,
                     ParaSexo = "Femenino"
                 },
                 new Producto
                 {
                     IdProducto = Guid.NewGuid(),
-                    Nombre = "Camiseta",
-                    Referencia = "CA5",
-                    UrlImagen = "ProductosImagenes/CA5.png",
-                    Descripcion = "Camiseta corta",
+                    Nombre = "Camiseta compresión licra",
+                    Referencia = "CCL",
+                    UrlImagen = "ProductosImagenes/buzo-saco-anime.png",
+                    Descripcion = "Camiseta compresión licra UV slim",
                     Color = "Blanco",
-                    Cantidad = 25,
+                    Cantidad = 85,
                     Talla = "16",
                     Valor = 45000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Masculino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Pantalon compresión licra",
+                    Referencia = "PCL",
+                    UrlImagen = "ProductosImagenes/pantalon-compresion-licra.png",
+                    Descripcion = "Pantalon compresión licra",
+                    Color = "Blanco",
+                    Cantidad = 87,
+                    Talla = "16",
+                    Valor = 48000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Masculino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Medias veladas térmicas",
+                    Referencia = "MVT",
+                    UrlImagen = "ProductosImagenes/medias-veladas-termicas.png",
+                    Descripcion = "Medias veladas termicas mujer efecto piel",
+                    Color = "Varios colores",
+                    Cantidad = 87,
+                    Talla = "17",
+                    Valor = 48000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Femenino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Medias antideslizantes",
+                    Referencia = "MA",
+                    UrlImagen = "ProductosImagenes/medias-antideslizantes-yoga-pilates.png",
+                    Descripcion = "Medias antideslizantes yoga pilates fitnics",
+                    Color = "Varios colores",
+                    Cantidad = 65,
+                    Talla = "15",
+                    Valor = 145000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Femenino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Uniforme mujer antifluido",
+                    Referencia = "UMA",
+                    UrlImagen = "ProductosImagenes/uniforme-mujer-antifluido.png",
+                    Descripcion = "Uniforme mujer antifluido scrub",
+                    Color = "Rojo",
+                    Cantidad = 28,
+                    Talla = "95",
+                    Valor = 145000,
+                    EsDeLosMasBuscados = true,
+                    ParaSexo = "Femenino"
+                },
+                new Producto
+                {
+                    IdProducto = Guid.NewGuid(),
+                    Nombre = "Vestido corto juvenil",
+                    Referencia = "SCR",
+                    UrlImagen = "ProductosImagenes/vestido-corto-juvenil.png",
+                    Descripcion = "Sudadera camuflada reforzada en tela náutica",
+                    Color = "Blanco y negro",
+                    Cantidad = 25,
+                    Talla = "95",
+                    Valor = 85000,
                     EsDeLosMasBuscados = true,
                     ParaSexo = "Femenino"
                 }

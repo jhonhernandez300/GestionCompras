@@ -1,29 +1,32 @@
-import { CanActivateFn } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { CanActivateChildFn, CanActivateFn } from '@angular/router';
+import { Injectable, inject } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { UsuarioService } from '../data/usuario.service';
+import { CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 
 // export const authGuard: CanActivateFn = (route, state) => {
 //   return true;
 // };
-@Injectable()
-export class AuthGuard implements CanActivate  {
-  constructor(
-    private usuarioService: UsuarioService, 
-    private router: Router
-  ) {}
+@Injectable({
+  providedIn: 'root'
+})
+export class PermissionsService {
+  constructor(private usuarioService: UsuarioService) {}
 
-  canActivate(): boolean {
-    return this.checkAuth();
-  }
-
-  private checkAuth(): boolean {
-    if (this.usuarioService.EstaAutenticado()) {
-      return true;
-    } else {      
-      this.router.navigate(['/login-usuario']);
-      return false;
-    }
-  }
+  canActivate: CanActivateFn = (
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ) => {
+    const usuarioService = inject(UsuarioService);
+    const router = inject(Router);
+  
+    return usuarioService.EstaAutenticado()
+  };
+  
+  canActivateChild: CanActivateChildFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => this.canActivate(route, state);
 }
+
+  

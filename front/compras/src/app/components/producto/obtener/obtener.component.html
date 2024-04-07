@@ -1,49 +1,20 @@
-<div *ngIf="items" class="container background-image">    
-    <div class="table">
-        <div class="table-header">
-            
-                <div scope="col" class="header-item">Nombre</div>
-                <div scope="col" class="header-item">Referencia</div>
-                <div scope="col" class="header-item">Url Imagen</div>                
-                <div scope="col" class="header-item">Descripción</div>
-                <div scope="col" class="header-item">Color</div>
-                <div scope="col" class="header-item">Cantidad</div>
-                <div scope="col" class="header-item">Talla</div>
-                <div scope="col" class="header-item">Valor</div>
-                <div scope="col" class="header-item">Más Buscados</div>
-                <div scope="col" class="header-item">Sexo</div>
-            
+<div *ngIf="items" class="container background-image">
+  <div class="row">
+    <div *ngFor="let item of items" class="col-md-4">
+      <div class="card mb-4">
+        <div class="card-header">{{ item.nombre }}</div>
+        <div class="card-body">
+          <div><strong>Referencia:</strong> {{ item.referencia }}</div>
+          <div><strong>Talla:</strong> {{ item.talla }}</div>
+          <div><strong>Valor:</strong> {{ item.valor }}</div>
+          <div><strong>Más Buscados:</strong> {{ item.esDeLosMasBuscados }}</div>
+          <div><strong>Sexo:</strong> {{ item.paraSexo }}</div>
         </div>
-        
-            <div *ngFor="let item of items"  class="table-content">         
-                <div class="table-row">
-                    <div class="table-data">{{ item.nombre}}</div>
-                    <div class="table-data">{{ item.referencia }}</div>
-                    <div class="table-data">{{ item.urlImagen.slice(0, 10) + '...' }}</div>
-                    <div class="table-data">{{ item.descripcion }}</div>
-                    <div class="table-data">{{ item.color }}</div>
-                    <div class="table-data">{{ item.cantidad }}</div>
-                    <div class="table-data">{{ item.talla }}</div>
-                    <div class="table-data">{{ item.valor }}</div>
-                    <div class="table-data">{{ item.esDeLosMasBuscados }}</div>
-                    <div class="table-data">{{ item.paraSexo }}</div>
-                </div>       
-              
-
-                <!-- <td>
-                    <button type="button" class="btn btn-danger">
-                        <a [routerLink]="['/deleteEmployee', item.idEmployee]">Borrar</a>
-                    </button>
-                </td>               
-
-                <td>
-                    <button type="button" class="btn btn-primary">
-                        <a [routerLink]="['/updateEmployee', item.idEmployee]">Editar</a>
-                    </button>
-                </td>                -->
-            </div>
-        
+        <div class="card-footer">
+          <button type="button" class="btn btn-danger">Detalle</button>
+          <button type="button" class="btn btn-primary">Agregar al carrito</button>
+        </div>
+      </div>
     </div>
-    <br><br>       
+  </div>
 </div>
-

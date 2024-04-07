@@ -6,8 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
-import { ErrorDialogComponent } from '../../utils/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-guardar-usuario',
@@ -21,8 +19,7 @@ export class GuardarUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder, 
-    private usuarioService: UsuarioService,
-    private dialog: MatDialog
+    private usuarioService: UsuarioService    
   ) { }
 
   iniciarFormulario(){
@@ -86,8 +83,7 @@ export class GuardarUsuarioComponent implements OnInit {
       console.log('response', response);               
     })
     .catch((error: any) => {
-      console.error(': ', error);
-      this.mostrarError(error.message);
+      console.error(': ', error);      
     })                    
   }  
   
@@ -104,12 +100,10 @@ export class GuardarUsuarioComponent implements OnInit {
         this.checkEmailExists(email).subscribe(
           (response) => {                    
             console.log('Correo electrónico ya existe:', response);          
-            this.myForm.get('CorreoElectronico')?.setErrors({ 'correoExiste': true });
-            this.mostrarError('Correo electrónico ya existe:');  
+            this.myForm.get('CorreoElectronico')?.setErrors({ 'correoExiste': true });            
           },
           (error) => {          
-            console.error('Error al verificar el correo electrónico:', error);      
-            this.mostrarError(error);    
+            console.error('Error al verificar el correo electrónico:', error);                  
           }
         );
         this.emailChecked = true;
@@ -121,15 +115,6 @@ export class GuardarUsuarioComponent implements OnInit {
     this.EmailChecked();
   }
 
-  mostrarError(mensaje: string): void {
-    const dialogRef = this.dialog.open(ErrorDialogComponent, {
-      width: '250px',
-      data: { message: mensaje }
-    });
   
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('El diálogo se cerró');
-    });
-  }
 }
 

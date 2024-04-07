@@ -10,7 +10,6 @@ import { LoginUsuarioComponent } from './components/usuario/login-usuario/login-
 import { MenuComponent } from './components/menu/menu.component';
 import { AuthInterceptor } from './data/authInterceptor';
 import { ObtenerComponent } from './components/producto/obtener/obtener.component';
-import { ErrorDialogComponent } from './components/utils/error-dialog/error-dialog.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { ErrorDialogComponent } from './components/utils/error-dialog/error-dial
     GuardarUsuarioComponent,
     LoginUsuarioComponent,
     MenuComponent,
-    ObtenerComponent,
-    ErrorDialogComponent
+    ObtenerComponent    
   ],
   imports: [
     BrowserModule,

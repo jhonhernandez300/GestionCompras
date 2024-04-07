@@ -18,17 +18,19 @@ a {
 #global{
     display: flex;
     flex-direction: column;
-    align-items: center;                
+    align-items: center;           
+    margin-bottom: 10px;    
 }
 #global > div {    
     width: 300px;       
 }
-#form-container {   
+#my-form-container {   
     padding-top: 4rem;
-    margin-bottom: 30px
+    margin-bottom: 30px;    
 }
 #the-form{
     width: 300px;
+    height: 450px;
     padding: 40px;        
     background: #191919;
     text-align: center;
@@ -80,11 +82,15 @@ input[type="button"] {
 }
 #registrese{    
     height: 60px;    
+    width: 350px;
     background: #363434;
     text-align: center;
     border-radius: 10px;        
-    margin-left: 80px;
-    -webkit-margin-afer: 40px;
+    margin-left: 70px;
+    margin-right: 70px;
+    padding-top: 7px;
+    padding-left: 7px;
+    -webkit-margin-afer: 40px;    
 }
 #registrese p{    
     padding-top: 8px;    
