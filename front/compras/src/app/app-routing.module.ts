@@ -11,7 +11,7 @@ const routes: Routes = [
     component: ObtenerComponent, 
     canActivate: [canActivateGuard]},
   //{ path: 'producto-obtener/:parametroDeBusqueda', component: ObtenerComponent},
-  { path: 'producto-detalle/:id', component: DetallesComponent},
+  { path: 'producto-detalle', component: DetallesComponent},
   { path: 'guardar-usuario', component: GuardarUsuarioComponent },
   { path: 'login-usuario', component: LoginUsuarioComponent },
   { path: '', component: LoginUsuarioComponent }, 

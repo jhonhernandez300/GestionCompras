@@ -34,7 +34,11 @@ export class ObtenerComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit(): void {
-    this.parametroDeBusqueda = this.route.snapshot.params['parametroDeBusqueda'];
+    //this.parametroDeBusqueda = this.route.snapshot.params['parametroDeBusqueda'];
+    this.route.params.subscribe(params => {
+      this.parametroDeBusqueda = params['parametroDeBusqueda'];
+      this.consultarProductos();
+    });
     this.consultarProductos();
   }
 
@@ -76,8 +80,13 @@ export class ObtenerComponent implements OnInit, OnChanges {
       });
   }
 
-  navigateToDetail(id: string) {
-    console.log("De la tabla de producto ", id);
-    this.router.navigate(['/producto-detalle', id]); 
+  // navigateToDetail(id: string) {
+  //   console.log("De la tabla de producto ", id);
+  //   this.router.navigate(['/producto-detalle', id]); 
+  // }
+  navigateToDetail(item: IProducto) {
+    const productoString = JSON.stringify(item);    
+    localStorage.setItem('producto', productoString);
+    this.router.navigate(['/producto-detalle']); 
   }
 }

@@ -1,34 +1,18 @@
-<!-- <div *ngIf="item && item.length > 0">  -->
-  <div *ngIf="item"> 
-
-    <div class="card">
-      <img [src]="item.UrlImagen" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{item.Nombre}}</h5>
-        <p class="card-text">{{item.Descripcion}}</p>
-        <p class="card-text">{{item.Referencia}}</p>
-        <p class="card-text">{{item.Color}}</p>
-        <p class="card-text">{{item.Cantidad}}</p>      
-        <p class="card-text">{{item.Talla}}</p>   
-        <p class="card-text">{{item.Valor}}</p>   
-        <p class="card-text">{{item.EsDeLosMasBuscados}}</p>   
-        <p class="card-text">{{item.ParaSexo}}</p>         
-      </div>
-  </div>
-
-    <!-- <div class="card">
-        <img [src]="item[0].UrlImagen" class="card-img-top" alt="...">
+<!-- <div *ngIf="item && item.length > 0">    -->
+  
+    <div class="card mx-auto text-center">
+        <img [src]="item.urlImagen" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{item[0].Nombre}}</h5>
-          <p class="card-text">{{item[0].Descripcion}}</p>
-          <p class="card-text">{{item[0].Referencia}}</p>
-          <p class="card-text">{{item[0].Color}}</p>
-          <p class="card-text">{{item[0].Cantidad}}</p>      
-          <p class="card-text">{{item[0].Talla}}</p>   
-          <p class="card-text">{{item[0].Valor}}</p>   
-          <p class="card-text">{{item[0].EsDeLosMasBuscados}}</p>   
-          <p class="card-text">{{item[0].ParaSexo}}</p>         
+          <h2 class="card-title">Nombre: {{item.nombre}}</h2>
+          <p class="card-text">Descripción: {{item.descripcion}}</p>
+          <p class="card-text">Referencia: {{item.referencia}}</p>
+          <p class="card-text">Color: {{item.color}}</p>
+          <p class="card-text">Cantidad: {{item.cantidad}}</p>      
+          <p class="card-text">Talla: {{item.talla}}</p>   
+          <p class="card-text">Valor: {{item.valor}}</p>   
+          <p class="card-text">Es de los más buscados: {{item.esDeLosMasBuscados}}</p>   
+          <p class="card-text">Sexo: {{item.paraSexo}}</p>         
         </div>
-    </div> -->
+    </div>
 
-</div>
+<!-- </div> -->

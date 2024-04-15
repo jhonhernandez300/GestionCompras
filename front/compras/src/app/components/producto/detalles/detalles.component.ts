@@ -11,7 +11,8 @@ import { ProductoService } from '../../../data/producto.service';
 export class DetallesComponent implements OnInit {
   id: string = '';
   //item: IProducto[] = [];
-  item!: IProducto;
+  //item!: IProducto;
+  item!: any;
 
   constructor(
     private route: ActivatedRoute, 
@@ -20,8 +21,14 @@ export class DetallesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];   
-    this.consultarProducto(this.id);
+    //this.id = this.route.snapshot.params['id'];   
+    //this.consultarProducto(this.id);
+    const productoString = localStorage.getItem('producto');
+
+    if (productoString) {      
+      this.item = JSON.parse(productoString);
+      console.log("item ", this.item);
+    }
   }
 
   consultarProducto(id: string){
@@ -29,8 +36,8 @@ export class DetallesComponent implements OnInit {
       .subscribe({
         next: (response) => {
           console.log('response', response);
-          //this.item = [response];  
-          this.item = response;
+          this.item = [response];  
+          //this.item = response;
         },
         error: (error) => {
           console.error(': ', error);
