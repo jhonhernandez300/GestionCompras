@@ -10,7 +10,8 @@ import { ProductoService } from '../../../data/producto.service';
 })
 export class DetallesComponent implements OnInit {
   id: string = '';
-  item: IProducto[] = [];
+  //item: IProducto[] = [];
+  item!: IProducto;
 
   constructor(
     private route: ActivatedRoute, 
@@ -28,7 +29,8 @@ export class DetallesComponent implements OnInit {
       .subscribe({
         next: (response) => {
           console.log('response', response);
-          this.item = [response];  // Manteniendo item como un array con un elemento          
+          //this.item = [response];  
+          this.item = response;
         },
         error: (error) => {
           console.error(': ', error);

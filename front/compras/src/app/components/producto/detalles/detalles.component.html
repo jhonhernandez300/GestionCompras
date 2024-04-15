@@ -1,6 +1,22 @@
-<div *ngIf="item && item.length > 0">  <!-- Verificando que item tenga al menos un elemento -->
+<!-- <div *ngIf="item && item.length > 0">  -->
+  <div *ngIf="item"> 
 
     <div class="card">
+      <img [src]="item.UrlImagen" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{item.Nombre}}</h5>
+        <p class="card-text">{{item.Descripcion}}</p>
+        <p class="card-text">{{item.Referencia}}</p>
+        <p class="card-text">{{item.Color}}</p>
+        <p class="card-text">{{item.Cantidad}}</p>      
+        <p class="card-text">{{item.Talla}}</p>   
+        <p class="card-text">{{item.Valor}}</p>   
+        <p class="card-text">{{item.EsDeLosMasBuscados}}</p>   
+        <p class="card-text">{{item.ParaSexo}}</p>         
+      </div>
+  </div>
+
+    <!-- <div class="card">
         <img [src]="item[0].UrlImagen" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{item[0].Nombre}}</h5>
@@ -13,6 +29,6 @@
           <p class="card-text">{{item[0].EsDeLosMasBuscados}}</p>   
           <p class="card-text">{{item[0].ParaSexo}}</p>         
         </div>
-    </div>
+    </div> -->
 
 </div>
