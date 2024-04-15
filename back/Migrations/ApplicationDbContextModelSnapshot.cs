@@ -69,7 +69,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdProducto = new Guid("4aac29d6-f416-4dc9-9ffe-06c7ce541489"),
+                            IdProducto = new Guid("787c05f4-48b2-43d6-a88c-25c20c0a60d4"),
                             Cantidad = 15,
                             Color = "Negro",
                             Descripcion = "Buso saco rick and morty fuck",
@@ -78,12 +78,12 @@ namespace Backend.Migrations
                             ParaSexo = "Masculino",
                             Referencia = "BSRAMF",
                             Talla = "14",
-                            UrlImagen = "ProductosImagenes/buso-saco-rick-and-morty-fuck.png",
+                            UrlImagen = "../../../../assets/buso-saco-rick-and-morty-fuck.png",
                             Valor = 140000
                         },
                         new
                         {
-                            IdProducto = new Guid("2a0f3195-98ad-4d1a-9a1c-5ee4c193d16f"),
+                            IdProducto = new Guid("dfd7e68b-3734-4b18-9559-c757092706ac"),
                             Cantidad = 25,
                             Color = "Negro",
                             Descripcion = "Sudadera clásica nautica",
@@ -92,12 +92,12 @@ namespace Backend.Migrations
                             ParaSexo = "Masculino",
                             Referencia = "SC",
                             Talla = "15",
-                            UrlImagen = "ProductosImagenes/sudadera-clasica-nautica.png",
+                            UrlImagen = "../../../../assets/sudadera-clasica-nautica.png",
                             Valor = 145000
                         },
                         new
                         {
-                            IdProducto = new Guid("1140eff8-c3e3-4930-b4d5-4744eea5fb55"),
+                            IdProducto = new Guid("84d2d2cd-1623-433d-9b04-b3a0f6a241fd"),
                             Cantidad = 35,
                             Color = "Negro",
                             Descripcion = "Buzo de compresión en licra protección UV",
@@ -106,12 +106,12 @@ namespace Backend.Migrations
                             ParaSexo = "Masculino",
                             Referencia = "BCL",
                             Talla = "5",
-                            UrlImagen = "ProductosImagenes/buzo-compresio-licra.png",
+                            UrlImagen = "../../../../assets/buzo-compresio-licra.png",
                             Valor = 3000
                         },
                         new
                         {
-                            IdProducto = new Guid("e1c7c2e6-b56d-46e0-afa0-5b7712ccd344"),
+                            IdProducto = new Guid("85b0f514-ec57-4494-8a0d-2a90ef685f2f"),
                             Cantidad = 19,
                             Color = "negro y colores en el centro",
                             Descripcion = "Buzo saco anime one piece",
@@ -120,12 +120,12 @@ namespace Backend.Migrations
                             ParaSexo = "masculino",
                             Referencia = "BSA",
                             Talla = "14",
-                            UrlImagen = "ProductosImagenes/buzo-saco-anime.png",
+                            UrlImagen = "../../../../assets/buzo-saco-anime.png",
                             Valor = 35000
                         },
                         new
                         {
-                            IdProducto = new Guid("f7db1a26-b48c-4a13-b823-99ebfbc12af4"),
+                            IdProducto = new Guid("4285a1a3-be4b-47cb-ab4b-ad3049cea3e7"),
                             Cantidad = 25,
                             Color = "Blanco",
                             Descripcion = "Camiseta corta",
@@ -134,12 +134,12 @@ namespace Backend.Migrations
                             ParaSexo = "Femenino",
                             Referencia = "CCL",
                             Talla = "16",
-                            UrlImagen = "ProductosImagenes/buzo-saco-anime.png",
+                            UrlImagen = "../../../../assets/buzo-saco-anime.png",
                             Valor = 45000
                         },
                         new
                         {
-                            IdProducto = new Guid("3272e317-937b-4342-93b1-83a55c5cadf4"),
+                            IdProducto = new Guid("da28b8eb-b853-4bd9-90cf-c855b2eda97d"),
                             Cantidad = 85,
                             Color = "Blanco",
                             Descripcion = "Camiseta compresión licra UV slim",
@@ -148,12 +148,12 @@ namespace Backend.Migrations
                             ParaSexo = "Masculino",
                             Referencia = "CCL",
                             Talla = "16",
-                            UrlImagen = "ProductosImagenes/buzo-saco-anime.png",
+                            UrlImagen = "../../../../assets/buzo-saco-anime.png",
                             Valor = 45000
                         },
                         new
                         {
-                            IdProducto = new Guid("e81551ad-c657-4a4e-b6ff-1d143508990f"),
+                            IdProducto = new Guid("a252b2d7-52cf-46bf-b813-17545ff78de5"),
                             Cantidad = 87,
                             Color = "Blanco",
                             Descripcion = "Pantalon compresión licra",
@@ -162,12 +162,12 @@ namespace Backend.Migrations
                             ParaSexo = "Masculino",
                             Referencia = "PCL",
                             Talla = "16",
-                            UrlImagen = "ProductosImagenes/pantalon-compresion-licra.png",
+                            UrlImagen = "../../../../assets/pantalon-compresion-licra.png",
                             Valor = 48000
                         },
                         new
                         {
-                            IdProducto = new Guid("cd08f9e5-479b-49be-b261-c5cb2f657cf4"),
+                            IdProducto = new Guid("8ed07524-6dc2-49df-b5a5-aba35a67e19e"),
                             Cantidad = 87,
                             Color = "Varios colores",
                             Descripcion = "Medias veladas termicas mujer efecto piel",
@@ -176,12 +176,12 @@ namespace Backend.Migrations
                             ParaSexo = "Femenino",
                             Referencia = "MVT",
                             Talla = "17",
-                            UrlImagen = "ProductosImagenes/medias-veladas-termicas.png",
+                            UrlImagen = "../../../../assets/medias-veladas-termicas.png",
                             Valor = 48000
                         },
                         new
                         {
-                            IdProducto = new Guid("c42f56c8-9791-4e75-be39-0f5c23a04a57"),
+                            IdProducto = new Guid("14792c94-c0d0-4f8e-b18d-60364cc9655e"),
                             Cantidad = 65,
                             Color = "Varios colores",
                             Descripcion = "Medias antideslizantes yoga pilates fitnics",
@@ -190,12 +190,12 @@ namespace Backend.Migrations
                             ParaSexo = "Femenino",
                             Referencia = "MA",
                             Talla = "15",
-                            UrlImagen = "ProductosImagenes/medias-antideslizantes-yoga-pilates.png",
+                            UrlImagen = "../../../../assets/medias-antideslizantes-yoga-pilates.png",
                             Valor = 145000
                         },
                         new
                         {
-                            IdProducto = new Guid("5f504e99-69a2-499b-a928-3383c831c1bc"),
+                            IdProducto = new Guid("fc72f1e5-9d9c-4fac-b0b8-efc6fabacd32"),
                             Cantidad = 28,
                             Color = "Rojo",
                             Descripcion = "Uniforme mujer antifluido scrub",
@@ -204,12 +204,12 @@ namespace Backend.Migrations
                             ParaSexo = "Femenino",
                             Referencia = "UMA",
                             Talla = "95",
-                            UrlImagen = "ProductosImagenes/uniforme-mujer-antifluido.png",
+                            UrlImagen = "../../../../assets/uniforme-mujer-antifluido.png",
                             Valor = 145000
                         },
                         new
                         {
-                            IdProducto = new Guid("ca024ed8-c0fa-4c25-8f7a-ced88b56fd07"),
+                            IdProducto = new Guid("6daa735b-a825-4049-bc3f-076692e57660"),
                             Cantidad = 25,
                             Color = "Blanco y negro",
                             Descripcion = "Sudadera camuflada reforzada en tela náutica",
@@ -218,7 +218,7 @@ namespace Backend.Migrations
                             ParaSexo = "Femenino",
                             Referencia = "SCR",
                             Talla = "95",
-                            UrlImagen = "ProductosImagenes/vestido-corto-juvenil.png",
+                            UrlImagen = "../../../../assets/vestido-corto-juvenil.png",
                             Valor = 85000
                         });
                 });
@@ -280,7 +280,7 @@ namespace Backend.Migrations
                     b.HasData(
                         new
                         {
-                            IdUsuario = new Guid("2a9087f2-d12d-475c-ad5a-468809b02a37"),
+                            IdUsuario = new Guid("b56cd5a2-6ded-4284-818a-2b5a1952667e"),
                             Apellidos = "Falcao",
                             Contrasena = "Rada1",
                             CorreoElectronico = "rada@gmail.com",
@@ -293,7 +293,7 @@ namespace Backend.Migrations
                         },
                         new
                         {
-                            IdUsuario = new Guid("4a8275e6-fba8-4176-9e59-507a49374cae"),
+                            IdUsuario = new Guid("d2f46a3e-7783-4590-8564-8979f0bba1d3"),
                             Apellidos = "Rodriguez",
                             Contrasena = "James1",
                             CorreoElectronico = "james@gmail.com",

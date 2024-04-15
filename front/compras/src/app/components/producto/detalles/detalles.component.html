@@ -1,0 +1,18 @@
+<div *ngIf="item && item.length > 0">  <!-- Verificando que item tenga al menos un elemento -->
+
+    <div class="card">
+        <img [src]="item[0].UrlImagen" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{item[0].Nombre}}</h5>
+          <p class="card-text">{{item[0].Descripcion}}</p>
+          <p class="card-text">{{item[0].Referencia}}</p>
+          <p class="card-text">{{item[0].Color}}</p>
+          <p class="card-text">{{item[0].Cantidad}}</p>      
+          <p class="card-text">{{item[0].Talla}}</p>   
+          <p class="card-text">{{item[0].Valor}}</p>   
+          <p class="card-text">{{item[0].EsDeLosMasBuscados}}</p>   
+          <p class="card-text">{{item[0].ParaSexo}}</p>         
+        </div>
+    </div>
+
+</div>

@@ -7,26 +7,16 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 
-// export const authGuard: CanActivateFn = (route, state) => {
-//   return true;
-// };
-@Injectable({
-  providedIn: 'root'
-})
-export class PermissionsService {
-  constructor(private usuarioService: UsuarioService) {}
-
-  canActivate: CanActivateFn = (
+  export const canActivateGuard: CanActivateFn = (  
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ) => {
-    const usuarioService = inject(UsuarioService);
-    const router = inject(Router);
+    if(inject(UsuarioService).EstaAutenticado()){
+      return true;
+    }else {
+      inject(Router).navigate(['/login-usuario']);
+      return false;
+    }
+  }; 
   
-    return usuarioService.EstaAutenticado()
-  };
-  
-  canActivateChild: CanActivateChildFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => this.canActivate(route, state);
-}
-
   

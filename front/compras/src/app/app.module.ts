@@ -10,6 +10,7 @@ import { LoginUsuarioComponent } from './components/usuario/login-usuario/login-
 import { MenuComponent } from './components/menu/menu.component';
 import { AuthInterceptor } from './data/authInterceptor';
 import { ObtenerComponent } from './components/producto/obtener/obtener.component';
+import { DetallesComponent } from './components/producto/detalles/detalles.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ObtenerComponent } from './components/producto/obtener/obtener.componen
     GuardarUsuarioComponent,
     LoginUsuarioComponent,
     MenuComponent,
-    ObtenerComponent    
+    ObtenerComponent,
+    DetallesComponent    
   ],
   imports: [
     BrowserModule,

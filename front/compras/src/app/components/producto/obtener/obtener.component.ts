@@ -25,6 +25,7 @@ export class ObtenerComponent implements OnInit, OnChanges {
 
   items!: any[];
   parametroDeBusqueda = 'Masculino';
+  idProducto: string = '';
 
   constructor(
     private productoService: ProductoService,
@@ -67,11 +68,16 @@ export class ObtenerComponent implements OnInit, OnChanges {
       .subscribe({
         next: (response) => {
           console.log('response', response);
-          this.items = response;
+          this.items = response;          
         },
         error: (error) => {
           console.error(': ', error);
         }
       });
+  }
+
+  navigateToDetail(id: string) {
+    console.log("De la tabla de producto ", id);
+    this.router.navigate(['/producto-detalle', id]); 
   }
 }

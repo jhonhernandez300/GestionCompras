@@ -65,7 +65,8 @@ export class GuardarUsuarioComponent implements OnInit {
 
   onReset(): void {
     this.submitted = false;
-    this.myForm.reset();
+    this.myForm.reset();    
+    this.myForm.controls['Genero'].setValue('Masculino');
     this.emailChecked = false;
   }
 

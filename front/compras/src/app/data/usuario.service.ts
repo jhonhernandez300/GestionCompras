@@ -8,7 +8,7 @@ import { IUsuario } from './IUsuario';
 })
 export class UsuarioService {
   lastDate: any;  
-  fechaHoraActual: Date = new Date();
+  fechaHoraActual: Date = new Date();  
 
   constructor(private http: HttpClient) { }
 
@@ -16,18 +16,25 @@ export class UsuarioService {
 //     'Content-Type': 'application/json'  
 // });
 
-EstaAutenticado(){  
-  const lastDate = localStorage.getItem('last date');  
-  
+EstaAutenticado(): boolean{  
+  const lastDate = localStorage.getItem('last date');      
+
   if (lastDate === null) {   
     this.lastDate = new Date(1900, 0, 1, 0, 0, 0); 
-  }
+  }else {
+    this.lastDate = new Date(lastDate);
+  }  
 
-  const diferenciaMs = this.lastDate.getTime() - this.fechaHoraActual.getTime();    
+  const fechaHoraActual = new Date();
+  const diferenciaMs = this.lastDate.getTime() - this.fechaHoraActual.getTime();      
     // Convertir la diferencia de milisegundos a minutos
-  const diferenciaMinutos = diferenciaMs / (1000 * 60);
+  const diferenciaMinutos = diferenciaMs / (1000 * 60);  
     // Comprobar si la diferencia es mayor a 20 minutos
-  return (diferenciaMinutos > 20) ? false : true;
+  if(diferenciaMinutos > 20)  {
+    return false;
+  }else{
+    return true;
+  }    
 }
 
   Guardar(Usuario: IUsuario): Promise<any> {
@@ -38,6 +45,10 @@ EstaAutenticado(){
   Login(data: any): Promise<any> {
     console.log('Antes del servicio ', data)  
     return this.http.post('https://localhost:7145/Usuario/Login', data).toPromise();
+  }
+
+  Logout(){
+    //Borrar local storage
   }
 
   GetWeather(): Promise<any> {

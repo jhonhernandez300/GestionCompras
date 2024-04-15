@@ -1,30 +1,29 @@
-<nav class="menu">
-    <ul class="menu-list">
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Inicio</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/producto-obtener', 'Masculino']">Hombre</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['/producto-obtener', 'Femenino']">Mujer</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Contacto</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Producto</a>    
+  </li>
+  <li class="nav-item">
+    <input [(ngModel)]='textoDeInput' 
+    type="text" 
+    class="form-control" 
+    placeholder="" 
+    aria-label="" 
+    aria-describedby="basic-addon1"
+    (keyup.enter)="redirectToProduct()"
+  >
+  </li>
+</ul>
 
-      <li class="menu-item"><a href="#">Inicio</a></li>
-      
-      <li class="menu-item">            
-          <a [routerLink]="['/producto-obtener', 'Masculino']">Hombre</a>        
-      </li>
 
-      <li class="menu-item">            
-          <a [routerLink]="['/producto-obtener', 'Femenino']">Mujer</a>        
-      </li>      
-      
-      <li class="menu-item"><a href="#">Contacto</a></li>
-
-    </ul>
-
-    <div class="right-content">
-      <label for="producto">Producto</label>      
-      <input [(ngModel)]='textoDeInput' 
-        type="text" 
-        class="form-control" 
-        placeholder="" 
-        aria-label="" 
-        aria-describedby="basic-addon1"
-        (keyup.enter)="redirectToProduct()"
-      >
-    </div>
-    
-  </nav>

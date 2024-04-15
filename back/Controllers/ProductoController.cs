@@ -35,6 +35,27 @@ namespace Backend.Controllers
             return productos;
         }
 
+        // GET: Producto/GetById/{id}
+        [HttpGet("GetById/{id}")]
+        public ActionResult<Producto> GetById(string id)
+        {
+            Guid guidValue;
+            if (!Guid.TryParse(id, out guidValue))
+            {                
+                return BadRequest("El ID no es un Guid válido");
+            }
+
+            var producto = _context.Productos
+                                .FirstOrDefault(p => p.IdProducto == guidValue);
+
+            if (producto == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(producto);
+        }
+
         // GET: Producto/GetMasBuscados/{paraSexo}
         [HttpGet("GetMasBuscados/{paraSexo}")]
         public async Task<ActionResult<IEnumerable<Producto>>> GetGetMasBuscados(string paraSexo)

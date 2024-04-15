@@ -1,14 +1,21 @@
-<div id="global" class="background-image">
+<div class="container">
+  
+  <div class="col-md-10">
 
-  <div id="my-form-container">
-    <form [formGroup]="myForm" id="the-form" (ngSubmit)="onSubmit()">
-      <div><h1>Login</h1></div>
+    <div class="card" >        
+        <div class="card-body">
+          <h5 class="card-title">Login</h5>                    
+        </div>
+    </div>
 
-      <div>          
+    <form [formGroup]="myForm" id="the-form" (ngSubmit)="onSubmit()">      
+
+      <div class="mb-3">         
           <input
             type="text"
             formControlName="CorreoElectronico"            
-            placeholder="Correo"   
+            placeholder="Correo"  
+            class="form-control" 
             [ngClass]="{ 'is-invalid': submitted && form['CorreoElectronico'].errors }"
           />
           <div *ngIf="submitted && form['CorreoElectronico'].errors" class="invalid-feedback">
@@ -18,11 +25,12 @@
           </div>
       </div>
   
-      <div>          
+      <div class="mb-3">         
           <input
             type="text"
             formControlName="Contrasena"            
             placeholder="Contraseña"   
+            class="form-control"
             [ngClass]="{ 'is-invalid': submitted && form['Contrasena'].errors }"
           />
           <div *ngIf="submitted && form['Contrasena'].errors" class="invalid-feedback">
@@ -31,17 +39,24 @@
           </div>
       </div>
   
-      <div>      
+      <div class="mb-3">     
           <input type="submit" value="Login" class="btn btn-primary"/>   
           <input type="button" value="Reset" (click)="onReset()" class="btn btn-warning float-right"/>
       </div>      
     </form>
-  </div>
-  
-  <div id="registrese">
-    <p>
-      <a routerLink="guardar-usuario" routerLinkActive="active">Regístrese</a>
-    </p>
+
+    <div class="card mx-auto" style="width: 18rem;">  
+      <div class="card-body text-center">
+        <h5 class="card-title">¿Usuario Nuevo?</h5>            
+        <input 
+          type="button" 
+          value="Regístrese" 
+          class="btn btn-dark"
+          (click)="navegarAGuardarUsuario()"
+        >  
+      </div>
+    </div>
+
   </div>
 
 </div>

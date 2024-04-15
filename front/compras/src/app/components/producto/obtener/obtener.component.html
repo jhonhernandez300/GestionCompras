@@ -1,20 +1,35 @@
-<div *ngIf="items" class="container background-image">
-  <div class="row">
-    <div *ngFor="let item of items" class="col-md-4">
-      <div class="card mb-4">
-        <div class="card-header">{{ item.nombre }}</div>
-        <div class="card-body">
-          <div><strong>Referencia:</strong> {{ item.referencia }}</div>
-          <div><strong>Talla:</strong> {{ item.talla }}</div>
-          <div><strong>Valor:</strong> {{ item.valor }}</div>
-          <div><strong>Más Buscados:</strong> {{ item.esDeLosMasBuscados }}</div>
-          <div><strong>Sexo:</strong> {{ item.paraSexo }}</div>
-        </div>
-        <div class="card-footer">
-          <button type="button" class="btn btn-danger">Detalle</button>
-          <button type="button" class="btn btn-primary">Agregar al carrito</button>
-        </div>
-      </div>
+<div *ngIf="items" class="container">
+  <div class="row justify-content-center" id="second-container">
+    <div class="col-md-12" id="table-container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="empty-cell"></th>
+            <th scope="col" class="nombre-column">Nombre</th>
+            <th scope="col" class="valor-column">Valor</th>
+            <th scope="col" class="mas-buscados-column">Más Buscados</th>
+            <th scope="col" class="sexo-column">Sexo</th>
+            <th scope="col" class="acciones-column">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td scope="row"><img src="{{ item.urlImagen }}" alt="Imagen" class="img-fluid"></td>
+            <td scope="row">{{ item.nombre }}</td>
+            <td scope="row">{{ item.valor }}</td>
+            <td scope="row">{{ item.esDeLosMasBuscados }}</td>
+            <td scope="row">{{ item.paraSexo }}</td>
+            <td scope="row">
+              <button type="button" 
+              class="btn btn-primary"
+              (click)="navigateToDetail(item.idProducto)"
+            >
+              Detalle
+            </button>              
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -66,4 +66,8 @@ export class LoginUsuarioComponent implements OnInit {
     })    
              
   }  
+
+  navegarAGuardarUsuario() {
+    this.router.navigate(['/guardar-usuario']);
+  }
 }
