@@ -10,7 +10,7 @@ import { catchError, map } from 'rxjs/operators';
   export const canActivateGuard: CanActivateFn = (  
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ) => {
+  ) => {   
     if(inject(UsuarioService).EstaAutenticado()){
       return true;
     }else {
